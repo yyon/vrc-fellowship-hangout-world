@@ -1,0 +1,11 @@
+Model Information:
+* title:	CASA City Logo
+* source:	https://sketchfab.com/3d-models/casa-city-logo-b300821c7bed47329f504f1129a26161
+* author:	digitalurban (https://sketchfab.com/digitalurban)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "CASA City Logo" (https://sketchfab.com/3d-models/casa-city-logo-b300821c7bed47329f504f1129a26161) by digitalurban (https://sketchfab.com/digitalurban) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

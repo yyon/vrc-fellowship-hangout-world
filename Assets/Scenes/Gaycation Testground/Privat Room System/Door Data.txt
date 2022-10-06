@@ -1,0 +1,18 @@
+Hex Tec. 
+Door System Data.
+Updating: Continuesy
+Typ: Privat Room Door Lock
+
+
+
+-By Pressing of the Lock button within the Room everybody outside of the room (including latejoiners) can no longer enter
+-The one who locked the door can freely enter and exit the room if its locked
+-People inside the room can still leave the room but can not re-enter it
+-if the one who locked the door leaves the instance the Door will be reopend (to prevent people from joining the world, locking all doors and leaving again)
+-attached to the Door is debug menu which is by default off, try not to delete it becose it might break the script.
+-Position, Meshes, Texture etc. can be freely swapped without any problem.
+-the current "Door" (Cube) mesh can be deleted tough keep the object it self with the collider and put it on some fitting place. (Handy when there allready is a door on a big mesh so you dont have to put a door over a door, just the collider)
+-All the Colors of the UI can be changed. (tough try to avoid the symbol color (the lock) cose it will automaticly change again to what ever status it is at)
+-The Purpel Cystals are the point people get teleportet to, dont mind em, they are not visible ingame.
+
+P.S. Im a Credit thot so, Please.    ~uwu

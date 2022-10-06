@@ -1,0 +1,18 @@
+newmtl wood
+map_Kd Planks005_2K_Color.jpg
+bump Planks005_2K_Normal.jpg
+Kd 1 1 1
+d 1
+
+newmtl planks
+map_Kd Planks003_2K_Color.jpg
+bump Planks003_2K_Normal.jpg
+Kd 1 1 1
+d 1
+
+newmtl wood_panels
+map_Kd Planks020_2K_Color.jpg
+bump Planks020_2K_Normal.jpg
+Kd 1 1 1
+d 1
+

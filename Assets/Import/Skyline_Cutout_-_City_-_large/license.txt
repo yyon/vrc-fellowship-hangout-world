@@ -1,0 +1,11 @@
+Model Information:
+* title:	Skyline Cutout - City - large
+* source:	https://sketchfab.com/3d-models/skyline-cutout-city-large-b00abd35578e4f628f4bcd3625ce5951
+* author:	MozillaHubs (https://sketchfab.com/mozillareality)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Skyline Cutout - City - large" (https://sketchfab.com/3d-models/skyline-cutout-city-large-b00abd35578e4f628f4bcd3625ce5951) by MozillaHubs (https://sketchfab.com/mozillareality) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
