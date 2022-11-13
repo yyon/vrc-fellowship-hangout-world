@@ -1,0 +1,7 @@
+make sure all uvs are "UVMap" (need when joining)
+interior only walls - 0.15m
+outer wall - 0.375m
+beems - 0.4m
+outlets - 0.3m above floor
+indoor light color - #ff9f46 (2500K)
+outdoor light color - #d1deff (9000K)

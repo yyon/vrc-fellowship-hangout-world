@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 /Assets/test_avatar
 /Assets/test_avatar.meta
+
+*.blend1

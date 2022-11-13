@@ -1,0 +1,12 @@
+After making changes in world.blend
+
+- delete old tempFinal.blend
+- duplicate world.blend and rename to tempFinal.blend
+- hide all objects that should be seperate
+- select all objects
+- 3d View > Object > Apply > Make Instances Real
+- 3d View > Object > Convert > Mesh
+- 3d View > Ctrl-J
+- delete all empties
+- import in unity directly from blend file
+- adjust light values
