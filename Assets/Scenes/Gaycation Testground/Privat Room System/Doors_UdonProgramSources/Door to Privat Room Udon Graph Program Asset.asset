@@ -104,9 +104,12 @@ MonoBehaviour:
       flowUIDs: []
       nodeValues: []
     updateOrder: 0
-  graphElementData: []
+  graphElementData:
+  - type: 5
+    uid: b09f4ade-32a2-41a3-aa41-963c4c426dc5
+    jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":10.0,"y":130.0,"width":531.0,"height":200.0}}'
   viewTransform:
-    position: {x: 333.33334, y: 193.33333}
-    scale: 0.7561437
+    position: {x: 591.2, y: -718.4}
+    scale: 1.520875
   version: 1.0.0
   showAssembly: 0
