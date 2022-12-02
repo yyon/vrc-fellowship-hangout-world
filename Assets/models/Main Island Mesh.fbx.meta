@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Bronze Metal.001
+    second: {fileID: 2100000, guid: 6708249f080cdd842b3e71c22b603166, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Carpet
     second: {fileID: 2100000, guid: 113690d8f84054043b622a5bb6742517, type: 2}
   - first:
@@ -24,6 +29,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Carpet Dark
     second: {fileID: 2100000, guid: a10ec9a8b3f83a346a278df670f17d46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100000, guid: 8c14a20fc757dfa41a4fc40436c978ec, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -88,12 +98,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glass
-    second: {fileID: 2100000, guid: 87e6f22bb56228c43a84fe67724347fc, type: 2}
+    second: {fileID: 2100000, guid: 643bb02ba10f93a48870d3418b60602a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glass Outside
-    second: {fileID: 2100000, guid: 87e6f22bb56228c43a84fe67724347fc, type: 2}
+    second: {fileID: 2100000, guid: 643bb02ba10f93a48870d3418b60602a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -104,6 +114,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Knitted Fabric Dark
     second: {fileID: 2100000, guid: 7a10e51f64e2bee41a967028bdd8ba2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp.001
+    second: {fileID: 2100000, guid: 6f3e9ac1d18dbaa4ba73ed8e32f352e3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -157,8 +172,38 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Metal Bronze
+    second: {fileID: 2100000, guid: 6708249f080cdd842b3e71c22b603166, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal Dark
+    second: {fileID: 2100000, guid: 9f2e561992353fa4292b0dd5f167d31a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal Light
+    second: {fileID: 2100000, guid: a5b421295e85563428412d2caff6c70b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Mystery Sign
     second: {fileID: 2100000, guid: db27afbe059bb844b8cb6ec1ca0cbf74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plant.001_Pot
+    second: {fileID: 2100000, guid: 631df7167790cdd4e8da1a142cbfb5c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plant.002_Leaves
+    second: {fileID: 2100000, guid: 1aaabdecd49224a4f8cdb79b06c1e3d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plant.002_Pot
+    second: {fileID: 2100000, guid: 52a9511abd34cde4db86f4f9b54c1991, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -179,6 +224,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Plant001_Stems
     second: {fileID: 2100000, guid: 281d8cf0a03d97840bb1d15527997c97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plants.004
+    second: {fileID: 2100000, guid: cadcb8804f2100741838a670fa9b5a47, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -270,7 +320,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

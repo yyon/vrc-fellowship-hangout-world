@@ -1,6 +1,0 @@
-newmtl grey_drywall
-map_Kd light grey drywall.png
-bump DrywallPopcornTexture001_NRM_3K.jpg
-Kd 1 1 1
-d 1
-

@@ -1,7 +1,0 @@
-newmtl M_wall_38
-map_Kd M_wall_baseColor_32.png
-map_Pm M_wall_metallicRoughness_33_metal.png
-bump M_wall_normal_34.png
-Kd 1 1 1
-d 1
-
