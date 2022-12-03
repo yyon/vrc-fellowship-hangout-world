@@ -1,0 +1,11 @@
+Model Information:
+* title:	Snowglobe
+* source:	https://sketchfab.com/3d-models/snowglobe-8388e93c6d6549228dbdd676c220ff14
+* author:	Matt LeMoine (https://sketchfab.com/Matt_LeMoine)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Snowglobe" (https://sketchfab.com/3d-models/snowglobe-8388e93c6d6549228dbdd676c220ff14) by Matt LeMoine (https://sketchfab.com/Matt_LeMoine) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

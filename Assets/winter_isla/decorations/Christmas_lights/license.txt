@@ -1,0 +1,11 @@
+Model Information:
+* title:	Christmas lights
+* source:	https://sketchfab.com/3d-models/christmas-lights-09bfe8a34ecc48faad598c5291734e67
+* author:	noortjeschuur (https://sketchfab.com/noortjeschuur)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Christmas lights" (https://sketchfab.com/3d-models/christmas-lights-09bfe8a34ecc48faad598c5291734e67) by noortjeschuur (https://sketchfab.com/noortjeschuur) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

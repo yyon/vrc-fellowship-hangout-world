@@ -1,0 +1,11 @@
+Model Information:
+* title:	Christmas Tree AjS
+* source:	https://sketchfab.com/3d-models/christmas-tree-ajs-be66778af671477f879b7a7647fcc834
+* author:	metaqueen (https://sketchfab.com/metaqueen)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Christmas Tree AjS" (https://sketchfab.com/3d-models/christmas-tree-ajs-be66778af671477f879b7a7647fcc834) by metaqueen (https://sketchfab.com/metaqueen) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

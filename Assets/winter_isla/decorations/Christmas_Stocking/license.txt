@@ -1,0 +1,11 @@
+Model Information:
+* title:	Christmas Stocking
+* source:	https://sketchfab.com/3d-models/christmas-stocking-b42b0ebf61cc436e88f8cfdebc3b463e
+* author:	Duznot (https://sketchfab.com/duz_vr)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Christmas Stocking" (https://sketchfab.com/3d-models/christmas-stocking-b42b0ebf61cc436e88f8cfdebc3b463e) by Duznot (https://sketchfab.com/duz_vr) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
