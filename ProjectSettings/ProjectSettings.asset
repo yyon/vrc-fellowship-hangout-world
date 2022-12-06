@@ -707,6 +707,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -720,10 +721,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: ff97cef0-15a1-44b5-83bd-91e05b48f358
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Fellowship_Hangout_V2
+  organizationId: daskebarnerumpe
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 1
   disableOldInputManagerSupport: 0
