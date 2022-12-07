@@ -128,7 +128,14 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
     public float SunIntensityPoint1 = 0.23f;
     public float SunIntensityPoint2 = 0.25f;
 
-    float SunInitialIntensity;
+	[Header("Custom: Ocean Color")]
+	public Material Ocean;
+	[ColorUsage(true, true)] public Color OceanColor1;
+	[ColorUsage(true, true)] public Color OceanColor2;
+	public float OceanPoint1 = 0.2f;
+	public float OceanPoint2 = 0.25f;
+
+	float SunInitialIntensity;
 
     bool local = false;
 
@@ -269,7 +276,10 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
         {
             CurrentTimeOfDay = 0;
         }
-    }
+
+		c = TwoPoint(OceanPoint1, OceanPoint2, OceanColor1, OceanColor2);
+		Ocean.SetColor("_Color", c);
+	}
 
 
     public float TwoPointFloat(float p1, float p2)
