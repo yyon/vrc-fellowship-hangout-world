@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Blanket.001
+    second: {fileID: 2100000, guid: 61ad4bf9108d71d4e993a0e18c802184, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Books.001
     second: {fileID: 2100000, guid: 724065cdcb477604fa1395ea1dee8df8, type: 2}
   - first:
@@ -62,6 +67,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Drinks
+    second: {fileID: 2100000, guid: 1bba932b4bb3f6848ae15ae59a9f4fd0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Drywall Red
     second: {fileID: 2100000, guid: 98a644bca0fee7d45a2f5f69f63d974c, type: 2}
   - first:
@@ -94,6 +104,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Fabric Dark 2
     second: {fileID: 2100000, guid: 98b433600aa3a8f41abfd57db0fad6e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fabric Dark 3
+    second: {fileID: 2100000, guid: 72b03223bfa043f44917017e03ba319d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -187,6 +202,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Mini Table.011
+    second: {fileID: 2100000, guid: 38252a2e7aa4ae342bcee9d7c55e482b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Mystery Sign
     second: {fileID: 2100000, guid: db27afbe059bb844b8cb6ec1ca0cbf74, type: 2}
   - first:
@@ -247,8 +267,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Sofa.006_Part A
+    second: {fileID: 2100000, guid: db98487ebda67474da2719f48205b83c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sofa.006_Part B
+    second: {fileID: 2100000, guid: 10cc5bab59991ae40a776465199d85d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Stone Bricks
     second: {fileID: 2100000, guid: 8f4ac9da8d5cad548960ae7fc5210a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stool.002
+    second: {fileID: 2100000, guid: 429055e2e9a9dd6468b5222c66fbdf9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tile.001
+    second: {fileID: 2100000, guid: d29f3685d39cfc344ad0ce368796fbcd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tile.002
+    second: {fileID: 2100000, guid: f3900be6e500ed049bf883b01a203790, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -264,6 +309,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Wood Light
     second: {fileID: 2100000, guid: a4abcce807e53784a9a979b24ba82ac9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood Light Floor
+    second: {fileID: 2100000, guid: 8bda2389633657044b54e6abba162e56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood Light Pattern
+    second: {fileID: 2100000, guid: f6e4947f226f44142b19692b52585deb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -320,7 +375,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
