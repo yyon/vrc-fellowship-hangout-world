@@ -155,7 +155,7 @@ namespace superbstingray
 			}
 		}
 
-		public void LateUpdate() 
+		public void PostLateUpdate() 
 		{
 			if (!VRC.SDKBase.Utilities.IsValid(localPlayer))
 			{

@@ -18,6 +18,7 @@ public class moveTV : UdonSharpBehaviour
         if (player.isLocal) {
             TV.transform.position = moveTo.transform.position;
             TV.transform.rotation = moveTo.transform.rotation;
-        }
+            TV.transform.localScale = moveTo.transform.localScale;
+		}
     }
 }
