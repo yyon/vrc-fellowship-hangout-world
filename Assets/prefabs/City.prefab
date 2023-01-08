@@ -7039,6 +7039,11 @@ PrefabInstance:
       propertyPath: m_ReflectionProbeUsage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -6139859910270021979, guid: d667f39c4729f1b428fb7127f7bc240a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -6106030341157565112, guid: d667f39c4729f1b428fb7127f7bc240a,
         type: 3}
       propertyPath: m_LightProbeUsage
