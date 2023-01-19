@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 467110536299716398}
-  m_IndirectSpecularColor: {r: 0.17277882, g: 0.21590562, b: 0.29784203, a: 1}
+  m_IndirectSpecularColor: {r: 0.17277864, g: 0.21590528, b: 0.29784128, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6332,7 +6332,7 @@ PrefabInstance:
     - target: {fileID: 4920372244020452974, guid: 0381104ab47832249b13229e4a1e1f40,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4920372244122431853, guid: 0381104ab47832249b13229e4a1e1f40,
         type: 3}
@@ -6457,7 +6457,7 @@ PrefabInstance:
     - target: {fileID: 4920372245093168122, guid: 0381104ab47832249b13229e4a1e1f40,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4920372245361628720, guid: 0381104ab47832249b13229e4a1e1f40,
         type: 3}
@@ -11156,7 +11156,7 @@ PrefabInstance:
     - target: {fileID: 2422465213599432473, guid: 640a203abf8a63047b6331c30c902fbc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2436572904442835421, guid: 640a203abf8a63047b6331c30c902fbc,
         type: 3}
@@ -12023,7 +12023,7 @@ PrefabInstance:
     - target: {fileID: 4122086614980902530, guid: 640a203abf8a63047b6331c30c902fbc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4204012654408596921, guid: 640a203abf8a63047b6331c30c902fbc,
         type: 3}
@@ -14871,6 +14871,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3186f58b80770c844b8e0d962261a4e5, type: 3}
+--- !u!23 &2957386659328295244 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4046414662458958587, guid: 3186f58b80770c844b8e0d962261a4e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2957386659328295243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3054882911207789928
 GameObject:
   m_ObjectHideFlags: 0
@@ -15195,7 +15201,7 @@ PrefabInstance:
     - target: {fileID: 4920372244020452974, guid: 0381104ab47832249b13229e4a1e1f40,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4920372244122431853, guid: 0381104ab47832249b13229e4a1e1f40,
         type: 3}
@@ -15320,7 +15326,7 @@ PrefabInstance:
     - target: {fileID: 4920372245093168122, guid: 0381104ab47832249b13229e4a1e1f40,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4920372245361628720, guid: 0381104ab47832249b13229e4a1e1f40,
         type: 3}
@@ -15498,7 +15504,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Ocean
       value: 
-      objectReference: {fileID: 2100000, guid: 66a082066b8ae664f8d44734164b9229, type: 2}
+      objectReference: {fileID: 2957386659328295244}
     - target: {fileID: 4512431217541681283, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
         type: 3}
       propertyPath: TimeSlider
@@ -15509,11 +15515,6 @@ PrefabInstance:
       propertyPath: LocalToggle
       value: 
       objectReference: {fileID: 9209731725702745443}
-    - target: {fileID: 4512431217541681283, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
-        type: 3}
-      propertyPath: OceanPoint2
-      value: 0.35
-      objectReference: {fileID: 0}
     - target: {fileID: 4512431217541681283, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
         type: 3}
       propertyPath: SpeedSlider
@@ -15580,11 +15581,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4512431217541681283, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
         type: 3}
-    - target: {fileID: 6568676065344003237, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
-        type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6568676065344003238, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
         type: 3}
       propertyPath: m_IsActive
@@ -15605,21 +15601,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2132622733}
-    - target: {fileID: 6911984655498069923, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
-        type: 3}
-      propertyPath: CollisionModule.quality
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6911984655498069923, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
-        type: 3}
-      propertyPath: CollisionModule.maxCollisionShapes
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6911984655498069923, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5,
-        type: 3}
-      propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de3472bf8ae46e42bb13aa19a0b1ce5, type: 3}
 --- !u!114 &6724756717399966604 stripped

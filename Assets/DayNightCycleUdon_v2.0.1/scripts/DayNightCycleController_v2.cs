@@ -29,15 +29,15 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
     public Toggle LocalToggle;
 
     [Header("Cloud Materials")]
-    public Material LowCloud;
+    public Renderer LowCloud;
     [Tooltip("BFW Clouds material")]
-    public Material HighCloud;
+    public Renderer HighCloud;
 
     [Header("Sky objects")]
-    public Material Stars;
+    public Renderer Stars;
     [Tooltip("A spherical particle system")]
     public GameObject StarsObject;
-    public Material Moon;
+    public Renderer Moon;
     [Tooltip("Should include the stars particle system and moon mesh gameobjects")]
     public GameObject SkyObject;
 
@@ -129,7 +129,7 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
     public float SunIntensityPoint2 = 0.25f;
 
 	[Header("Custom: Ocean Color")]
-	public Material Ocean;
+	public Renderer Ocean;
 	[ColorUsage(true, true)] public Color OceanColor1;
 	[ColorUsage(true, true)] public Color OceanColor2;
 	public float OceanPoint1 = 0.2f;
@@ -154,7 +154,7 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
         UnityEngine.Random.InitState((int)Time.time);
         TimeSlider.value = CurrentTimeOfDay;
         SpeedSlider.value = SpeedToSlider(Speed);
-    }
+	}
 
     public void LocalUpdated()
     {
@@ -216,8 +216,8 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
         
         RenderSettings.ambientLight = ThreePoint(AmbientPoint1, AmbientPoint2, AmbientPoint3, AmbientColor1, AmbientColor2, AmbientColor3);
         Color c = ThreePoint(CloudPoint1, CloudPoint2, CloudPoint3, CloudColor1, CloudColor2, CloudColor3);
-        LowCloud.SetColor("_CloudColor", c);
-        HighCloud.SetColor("_CloudColor", c);
+        LowCloud.material.SetColor("_CloudColor", c);
+        HighCloud.material.SetColor("_CloudColor", c);
 
         /*
         c = ThreePoint(WaterPoint1, WaterPoint2, WaterPoint3, WaterFarColor1, WaterFarColor2, WaterFarColor3);
@@ -227,7 +227,7 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
         */
         
         c = TwoPoint(StarPoint1, StarPoint2, StarColor1, StarColor2);
-        Stars.SetColor("_EmissionColor", c);
+        Stars.material.SetColor("_EmissionColor", c);
 
         if (c.a <= StarCutoff)
         {
@@ -241,7 +241,7 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
             StarsObject.SetActive(true);
         }
 
-        Moon.color = TwoPoint(MoonPoint1, MoonPoint2, MoonColor1, MoonColor2);
+        Moon.material.color = TwoPoint(MoonPoint1, MoonPoint2, MoonColor1, MoonColor2);
 
         /*
         if (CurrentTimeOfDay > FirePoint && CurrentTimeOfDay < 1 - FirePoint)
@@ -278,7 +278,7 @@ public class DayNightCycleController_v2 : UdonSharpBehaviour
         }
 
 		c = TwoPoint(OceanPoint1, OceanPoint2, OceanColor1, OceanColor2);
-		Ocean.SetColor("_Color", c);
+		Ocean.material.SetColor("_Color", c);
 	}
 
 

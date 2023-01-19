@@ -3024,11 +3024,11 @@ MonoBehaviour:
   SpeedSlider: {fileID: 0}
   TimeSlider: {fileID: 0}
   LocalToggle: {fileID: 0}
-  LowCloud: {fileID: 2100000, guid: 4195d31cc7b144914b4ffe90c3adf382, type: 2}
-  HighCloud: {fileID: 2100000, guid: 0e149e22a60d2eb47b181688cff3297d, type: 2}
-  Stars: {fileID: 2100000, guid: 9a68fded35d435c4e842c5139eadd896, type: 2}
+  LowCloud: {fileID: 6591324200840467147}
+  HighCloud: {fileID: 6591324233414818471}
+  Stars: {fileID: 4181400396832331533}
   StarsObject: {fileID: 4181400396832331254}
-  Moon: {fileID: 2100000, guid: 34e774f384d3eaf41aa00fdd192fbde8, type: 2}
+  Moon: {fileID: 4181400396832330852}
   SkyObject: {fileID: 4181400396832331248}
   Probe: {fileID: 6568676065590641789}
   DawnCubemap: {fileID: 8900000, guid: 0a831fd58f48ca74a9d44df88034fe16, type: 3}
@@ -3073,7 +3073,12 @@ MonoBehaviour:
   OceanColor1: {r: 0, g: 0, b: 0, a: 0}
   OceanColor2: {r: 0, g: 0, b: 0, a: 0}
   OceanPoint1: 0.2
-  OceanPoint2: 0.25
+  OceanPoint2: 0.35
+  Low: {fileID: 6569394603119746609}
+  High: {fileID: 6569394603156516693}
+  Moo: {fileID: 4181400396832331203}
+  Star: {fileID: 4181400396832331254}
+  Oce: {fileID: 0}
 --- !u!114 &4512431217541681281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3306,8 +3311,8 @@ Transform:
   m_LocalPosition: {x: 199.91885, y: 23.31324, z: 123.931946}
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children:
-  - {fileID: 6568101935193717081}
   - {fileID: 6568101935295694233}
+  - {fileID: 6568101935193717081}
   m_Father: {fileID: 5341785629324188452}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -3341,7 +3346,7 @@ Transform:
   m_LocalScale: {x: 4, y: 2, z: 4}
   m_Children: []
   m_Father: {fileID: 6568101935872893557}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6583591137280280323
 MeshFilter:
@@ -3420,7 +3425,7 @@ Transform:
   m_LocalScale: {x: 5, y: 2.5, z: 5}
   m_Children: []
   m_Father: {fileID: 6568101935872893557}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &6583591137314397123
 MeshFilter:
@@ -16066,9 +16071,9 @@ ParticleSystem:
     radiusScale: 0.01
     collidesWith:
       serializedVersion: 2
-      m_Bits: 79691575
-    maxCollisionShapes: 256
-    quality: 0
+      m_Bits: 1
+    maxCollisionShapes: 1000
+    quality: 2
     voxelSize: 0.5
     collisionMessages: 0
     collidesWithDynamic: 0
