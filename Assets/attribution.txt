@@ -17,6 +17,7 @@ https://booth.pm/en/items/2552465
 https://vowgan.booth.pm/items/3403129
 https://github.com/DrakenStark/ToggUltima/releases
 https://github.com/Thryrallo/UdonPrefabs
+https://github.com/llealloo/vrc-udon-audio-link
 https://sketchfab.com/3d-models/casa-city-logo-b300821c7bed47329f504f1129a26161
 https://commons.wikimedia.org/wiki/File:New_York_City_at_night_HDR_edit1.jpg
 https://commons.wikimedia.org/wiki/File:Empire_State_Building_from_Rockefeller_Center_at_night.jpg
