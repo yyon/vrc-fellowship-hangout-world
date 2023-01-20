@@ -88,8 +88,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnableAutogain: 0
-    - _FadeExpFalloff: 0.3
-    - _FadeLength: 0.8
+    - _FadeExpFalloff: 0.75
+    - _FadeLength: 0.25
     - _FreqCeiling: 1
     - _FreqFloor: 0.123
     - _Gain: 1
@@ -137,7 +137,7 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CustomThemeColor0: {r: 1, g: 1, b: 0, a: 1}
+    - _CustomThemeColor0: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
     - _CustomThemeColor1: {r: 0, g: 0, b: 1, a: 1}
     - _CustomThemeColor2: {r: 1, g: 0, b: 0, a: 1}
     - _CustomThemeColor3: {r: 0, g: 1, b: 0, a: 1}
