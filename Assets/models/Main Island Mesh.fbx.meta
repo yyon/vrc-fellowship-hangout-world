@@ -2,7 +2,13 @@ fileFormatVersion: 2
 guid: ff1f7ea6f0da1c64a9fde1c07b760862
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -380863419831553646
+    second: Garage Mural.002|Garage MuralAction
+  - first:
+      74: 5710005979790597926
+    second: Garage Mural.002|Garage MuralAction.001
   externalObjects:
   - first:
       type: UnityEngine:Material
