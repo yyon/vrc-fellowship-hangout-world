@@ -5299,7 +5299,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: 3
     m_CustomResolution: -1
     m_Strength: 1
@@ -24574,7 +24574,7 @@ MonoBehaviour:
           m_StringArgument: LocalUpdated
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!95 &5798147379270549843
 Animator:
   serializedVersion: 3
@@ -24728,7 +24728,7 @@ MonoBehaviour:
           m_StringArgument: ShadowToggle
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!95 &8479570449736870417
 Animator:
   serializedVersion: 3
@@ -24797,6 +24797,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 8994534346478679299}
   light: {fileID: 6568676065344003237}
+  toggle: {fileID: 4828118380494126256}
 --- !u!1 &7524397868759901565
 GameObject:
   m_ObjectHideFlags: 0

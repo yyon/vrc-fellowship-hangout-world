@@ -3,7 +3,32 @@ guid: 0377302984410694f9cdbf69f92d8f90
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blahaj_black
+    second: {fileID: 2100000, guid: 7b9ccfe3b3ef0f744b2ed9d5e4747df9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blahaj_blue
+    second: {fileID: 2100000, guid: 5a6177f767c0a9941936c2f77ffa293c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blahaj_eye
+    second: {fileID: 2100000, guid: 3c53daa9b47e6054ab7ba0748fb787b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blahaj_pink
+    second: {fileID: 2100000, guid: 47972d9d175fc5343a76aba09ea1103f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blahaj_white
+    second: {fileID: 2100000, guid: cd09e3a21d8f69043add4d4439b2432c, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

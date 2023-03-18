@@ -12,5 +12,6 @@ public class respawn : UdonSharpBehaviour
     void Interact() {
         Networking.SetOwner(Networking.LocalPlayer, obj);
         obj.transform.position = moveTo.transform.position;
-    }
+        obj.transform.rotation = moveTo.transform.rotation;
+	}
 }
