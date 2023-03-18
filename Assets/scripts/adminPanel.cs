@@ -5,26 +5,19 @@ using VRC.SDKBase;
 using VRC.Udon;
 using System;
 using UnityEngine.UI;
-using System.Reflection;
-using CentauriCore.Blackjack;
 using TMPro;
 using VRC.SDK3.Components;
 
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
-public class adminPanel : UdonSharpBehaviour
-{
+public class adminPanel : UdonSharpBehaviour {
 	[HideInInspector][UdonSynced(UdonSyncMode.None)] public int tab = 0;
 	[UdonSynced(UdonSyncMode.None)] public bool performanceModeOnDefault = false;
 	[UdonSynced(UdonSyncMode.None)] public bool stagePlayer = false;
 	[UdonSynced(UdonSyncMode.None)] public int spawnPosition = 0;
-	private string[] users = new string[0];
-	[HideInInspector][UdonSynced(UdonSyncMode.None)] public string[] admins = new string[0];
 	[HideInInspector][UdonSynced(UdonSyncMode.None)] public int userSelect = 0;
 	[HideInInspector][UdonSynced(UdonSyncMode.None)] public int adminSelect = 0;
 
 	[HideInInspector] public bool isOwner = false;
-	private int userCount = 0;
-	private int adminCount = 0;
 
 	private bool isInitialLoad = true;
 	public performanceMode performanceModeToggle;
@@ -33,6 +26,8 @@ public class adminPanel : UdonSharpBehaviour
 	public Transform basementSpawn;
 	public GameObject stagePlayerGameObject;
 	public GameObject respawnButton;
+	public AdminList adminList;
+	public VRCPickup handlePickup;
 
 	public GameObject notAdminUI;
 	public GameObject isAdminUI;
@@ -45,36 +40,14 @@ public class adminPanel : UdonSharpBehaviour
 	public Toggle perfModeToggle;
 	public Dropdown spawnDropdown;
 	public Toggle stagePlayerToggle;
-	public TextMeshProUGUI userList;
+	public TextMeshProUGUI userListGUI;
 	public RectTransform userSelectBox;
-	public TextMeshProUGUI adminList;
+	public TextMeshProUGUI adminListGUI;
 	public RectTransform adminSelectBox;
-
-	public static void Append<T>(ref T[] array, T item) {
-		T[] nArray = new T[array.Length + 1];
-		Array.Copy(array, nArray, array.Length);
-		nArray[array.Length] = item;
-		array = nArray;
-	}
-
-	public static void Remove<T>(ref T[] array, int index) {
-		T[] nArray = new T[array.Length - 1];
-		Array.Copy(array, 0, nArray, 0, index - 1);
-		Array.Copy(array, index + 1, nArray, index, array.Length - 1 - index);
-		array = nArray;
-	}
-
-	public static bool Contains<T>(T[] array, T item) {
-		return Array.IndexOf(array, item) >= 0;
-	}
 
 	void Start() {
 		isOwner = Networking.GetOwner(gameObject) == Networking.LocalPlayer;
-		if(isOwner) {
-			Append(ref admins, Networking.LocalPlayer.displayName);
-			RequestSerialization();
-			OnDeserialization();
-		}
+		if(isOwner) OnDeserialization();
 	}
 
 	public override void OnOwnershipTransferred(VRCPlayerApi newPlayer) {
@@ -82,7 +55,7 @@ public class adminPanel : UdonSharpBehaviour
 	}
 
 	public override bool OnOwnershipRequest(VRCPlayerApi requestingPlayer, VRCPlayerApi requestedOwner) {
-		return Contains(admins, requestedOwner.displayName);
+		return adminList.containsAdmin(requestedOwner.displayName);
 	}
 
 	public void ClickTab0() { ClickTab(0); }
@@ -91,27 +64,28 @@ public class adminPanel : UdonSharpBehaviour
 		tab = index;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		updateFromData();
+		OnDeserialization();
 	}
 
 	public void perfModeChange() {
 		performanceModeOnDefault = perfModeToggle.isOn;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
+		OnDeserialization();
 	}
 
 	public void spawnChange() {
 		spawnPosition = spawnDropdown.value;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		updateFromData();
+		OnDeserialization();
 	}
 
 	public void stagePlayerChange() {
 		stagePlayer = stagePlayerToggle.isOn;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		updateFromData();
+		OnDeserialization();
 	}
 
 	public void userUp() {
@@ -119,24 +93,26 @@ public class adminPanel : UdonSharpBehaviour
 		userSelect--;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		updateFromData();
+		OnDeserialization();
 	}
 
 	public void userDown() {
-		if(userSelect >= userCount - 1) return;
+		if(userSelect >= adminList.users.Length - 1) return;
 		userSelect++;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		updateFromData();
+		OnDeserialization();
 	}
 
 	public void userMove() {
-		if(users.Length <= 0) return;
-		Append(ref admins, users[userSelect]);
-		if(userSelect > 0) userSelect--;
-		Networking.SetOwner(Networking.LocalPlayer, gameObject);
-		RequestSerialization();
-		updateFromData();
+		if(adminList.users.Length == 0) return;
+		adminList.addAdmin(adminList.users[userSelect]);
+		if(userSelect > 0) {
+			userSelect--;
+			Networking.SetOwner(Networking.LocalPlayer, gameObject);
+			RequestSerialization();
+			OnDeserialization();
+		}
 	}
 
 	public void adminUp() {
@@ -144,24 +120,26 @@ public class adminPanel : UdonSharpBehaviour
 		adminSelect--;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		updateFromData();
+		OnDeserialization();
 	}
 
 	public void adminDown() {
-		if(adminSelect >= adminCount - 1) return;
+		if(adminSelect >= adminList.admins.Length - 1) return;
 		adminSelect++;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		updateFromData();
+		OnDeserialization();
 	}
 
 	public void adminMove() {
-		if(admins.Length == 1) return;
-		Remove(ref admins, adminSelect);
-		if(adminSelect > 0) adminSelect--;
-		Networking.SetOwner(Networking.LocalPlayer, gameObject);
-		RequestSerialization();
-		updateFromData();
+		if(adminList.admins.Length == 1) return;
+		adminList.removeAdmin(adminSelect);
+		if(adminSelect > 0) {
+			adminSelect--;
+			Networking.SetOwner(Networking.LocalPlayer, gameObject);
+			RequestSerialization();
+			OnDeserialization();
+		}
 	}
 
 	public override void OnDeserialization() {
@@ -173,15 +151,12 @@ public class adminPanel : UdonSharpBehaviour
 			}
 		}
 
-		updateFromData();
-	}
-
-	public void updateFromData() {
-		bool isAdmin = Contains(admins, Networking.LocalPlayer.displayName);
+		bool isAdmin = adminList.containsAdmin(Networking.LocalPlayer.displayName);
 		respawnButton.SetActive(isAdmin);
 		notAdminUI.SetActive(!isAdmin);
 		isAdminUI.SetActive(isAdmin);
 		paRadio.pickupable = isAdmin;
+		handlePickup.pickupable = isAdmin;
 
 		if(spawnPosition == 0) {
 			worldSpawn.position = entranceSpawn.position;
@@ -204,28 +179,11 @@ public class adminPanel : UdonSharpBehaviour
 
 		stagePlayerGameObject.SetActive(stagePlayer);
 
-		userCount = VRCPlayerApi.GetPlayerCount() - admins.Length;
-		adminCount = admins.Length;
-
-		VRCPlayerApi[] players = new VRCPlayerApi[VRCPlayerApi.GetPlayerCount()];
-		players = VRCPlayerApi.GetPlayers(players);
-
-		string userStr = "", adminStr = "";
-		foreach(VRCPlayerApi player in players) {
-			if(Contains(admins, player.displayName)) {
-				adminStr += player.displayName + "\n";
-			}
-			else {
-				Append(ref users, player.displayName);
-				userStr += player.displayName + "\n";
-			}
-		}
-
-		userList.text = userStr;
-		adminList.text = adminStr;
+		userListGUI.text = adminList.userListStr;
+		adminListGUI.text = adminList.adminListStr;
 		userSelectBox.anchoredPosition = new Vector2(0, -13.75f * userSelect);
 		adminSelectBox.anchoredPosition = new Vector2(0, -13.75f * adminSelect);
 
-		notAdminInfo.text = "You are not an admin. Ask one of these admins to add you...\n" + adminStr;
+		notAdminInfo.text = "You are not an admin. Ask one of these admins to add you...\n" + adminList.adminListStr;
 	}
 }
