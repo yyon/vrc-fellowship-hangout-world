@@ -37,6 +37,8 @@ public class adminPanel : UdonSharpBehaviour {
 	public Image Tab1;
 	public GameObject Tab0Container;
 	public GameObject Tab1Container;
+	public GameObject perfModeSettingDisabled;
+	public GameObject perfModeSettingEnabled;
 	public Toggle perfModeToggle;
 	public Dropdown spawnDropdown;
 	public Toggle stagePlayerToggle;
@@ -146,7 +148,7 @@ public class adminPanel : UdonSharpBehaviour {
 		if(isInitialLoad) {
 			isInitialLoad = false;
 			if(spawnPosition == 1) Networking.LocalPlayer.TeleportTo(basementSpawn.position, basementSpawn.rotation);
-			if(performanceModeToggle.performanceModeOn != performanceModeOnDefault) {
+			if(performanceModeToggle != null && performanceModeToggle.performanceModeOn != performanceModeOnDefault) {
 				performanceModeToggle.Interact();
 			}
 		}
@@ -173,6 +175,8 @@ public class adminPanel : UdonSharpBehaviour {
 		Tab0Container.SetActive(tab == 0);
 		Tab1Container.SetActive(tab == 1);
 
+		perfModeSettingDisabled.SetActive(performanceModeToggle == null);
+		perfModeSettingEnabled.SetActive(performanceModeToggle != null);
 		perfModeToggle.isOn = performanceModeOnDefault;
 		spawnDropdown.value = spawnPosition;
 		stagePlayerToggle.isOn = stagePlayer;
