@@ -29147,6 +29147,11 @@ PrefabInstance:
       objectReference: {fileID: 1905657979}
     - target: {fileID: 1280966036904864236, guid: 14c654b35e3e5ab438b6e25492beb1ce,
         type: 3}
+      propertyPath: spawnPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280966036904864236, guid: 14c654b35e3e5ab438b6e25492beb1ce,
+        type: 3}
       propertyPath: performanceModeToggle
       value: 
       objectReference: {fileID: 0}
