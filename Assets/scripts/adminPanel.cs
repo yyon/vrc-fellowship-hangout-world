@@ -91,7 +91,7 @@ public class adminPanel : UdonSharpBehaviour {
 	}
 
 	public void userUp() {
-		if(userSelect == 0) return;
+		if(userSelect <= 0) return;
 		userSelect--;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
@@ -108,13 +108,8 @@ public class adminPanel : UdonSharpBehaviour {
 
 	public void userMove() {
 		if(adminList.users.Length == 0) return;
-		adminList.addAdmin(adminList.users[userSelect]);
-		if(userSelect > 0) {
-			userSelect--;
-			Networking.SetOwner(Networking.LocalPlayer, gameObject);
-			RequestSerialization();
-			OnDeserialization();
-		}
+		userSelect--;
+		adminList.addAdmin(adminList.users[userSelect + 1]);
 	}
 
 	public void adminUp() {
@@ -135,19 +130,16 @@ public class adminPanel : UdonSharpBehaviour {
 
 	public void adminMove() {
 		if(adminList.admins.Length == 1) return;
-		adminList.removeAdmin(adminSelect);
-		if(adminSelect > 0) {
-			adminSelect--;
-			Networking.SetOwner(Networking.LocalPlayer, gameObject);
-			RequestSerialization();
-			OnDeserialization();
-		}
+		adminSelect--;
+		adminList.removeAdmin(adminSelect + 1);
 	}
 
 	public override void OnDeserialization() {
 		if(isInitialLoad) {
 			isInitialLoad = false;
-			if(spawnPosition == 1) Networking.LocalPlayer.TeleportTo(basementSpawn.position, basementSpawn.rotation);
+			if(spawnPosition == 0) Networking.LocalPlayer.TeleportTo(entranceSpawn.position, entranceSpawn.rotation);
+			else if(spawnPosition == 1) Networking.LocalPlayer.TeleportTo(basementSpawn.position, basementSpawn.rotation);
+
 			if(performanceModeToggle != null && performanceModeToggle.performanceModeOn != performanceModeOnDefault) {
 				performanceModeToggle.Interact();
 			}

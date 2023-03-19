@@ -24,7 +24,7 @@ public class AdminList : UdonSharpBehaviour {
 
 	public static void Remove<T>(ref T[] array, int index) {
 		T[] nArray = new T[array.Length - 1];
-		Array.Copy(array, 0, nArray, 0, index - 1);
+		Array.Copy(array, 0, nArray, 0, index);
 		Array.Copy(array, index + 1, nArray, index, array.Length - 1 - index);
 		array = nArray;
 	}
@@ -70,31 +70,11 @@ public class AdminList : UdonSharpBehaviour {
 
 	public override void OnPlayerLeft(VRCPlayerApi player) {
 		if(isOwner) {
-			bool change = false, selectChange = false;
 			int index = Array.IndexOf(admins, player.displayName);
 			if(index >= 0) {
 				Remove(ref admins, index);
 				if(admins.Length == 0) Append(ref admins, Networking.LocalPlayer.displayName);
-				change = true;
-			}
-
-			if(panel.adminSelect == admins.Length && panel.adminSelect != 0) {
-				panel.adminSelect--;
-				selectChange = true;
-			}
-
-			if(panel.userSelect == VRCPlayerApi.GetPlayerCount() && panel.userSelect != 0) {
-				panel.userSelect--;
-				selectChange = true;
-			}
-
-			if(change) {
 				RequestSerialization();
-			}
-
-			if(selectChange) {
-				Networking.SetOwner(Networking.LocalPlayer, panel.gameObject);
-				panel.RequestSerialization();
 			}
 		}
 
@@ -105,15 +85,35 @@ public class AdminList : UdonSharpBehaviour {
 		VRCPlayerApi[] players = new VRCPlayerApi[VRCPlayerApi.GetPlayerCount()];
 		players = VRCPlayerApi.GetPlayers(players);
 
+		users = new string[0];
 		userListStr = "";
 		adminListStr = "";
 		foreach(VRCPlayerApi player in players) {
-			if(containsAdmin(player.displayName)) {
-				adminListStr += player.displayName + "\n";
-			}
-			else {
+			if(!containsAdmin(player.displayName)) {
 				Append(ref users, player.displayName);
 				userListStr += player.displayName + "\n";
+			}
+		}
+
+		foreach(string admin in admins) {
+			adminListStr += admin + "\n";
+		}
+
+		if(isOwner) {
+			bool changeIndex = false;
+			if(panel.userSelect < 0 || panel.userSelect > Math.Max(users.Length - 1, 0)) {
+				panel.userSelect = Math.Max(0, Math.Min(panel.userSelect, users.Length - 1));
+				changeIndex = true;
+			}
+
+			if(panel.adminSelect < 0 || panel.adminSelect > Math.Max(admins.Length - 1, 0)) {
+				panel.adminSelect = Math.Max(0, Math.Min(panel.adminSelect, admins.Length - 1));
+				changeIndex = true;
+			}
+
+			if(changeIndex) {
+				Networking.SetOwner(Networking.LocalPlayer, panel.gameObject);
+				panel.RequestSerialization();
 			}
 		}
 
