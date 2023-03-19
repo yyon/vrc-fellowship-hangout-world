@@ -117,6 +117,6 @@ public class AdminList : UdonSharpBehaviour {
 			}
 		}
 
-		panel.OnDeserialization();
+		panel.updateData();
 	}
 }

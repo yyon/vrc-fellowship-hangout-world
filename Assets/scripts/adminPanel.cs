@@ -68,28 +68,28 @@ public class adminPanel : UdonSharpBehaviour {
 		tab = index;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void perfModeChange() {
 		performanceModeOnDefault = perfModeToggle.isOn;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void spawnChange() {
 		spawnPosition = spawnDropdown.value;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void stagePlayerChange() {
 		stagePlayer = stagePlayerToggle.isOn;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void userUp() {
@@ -97,7 +97,7 @@ public class adminPanel : UdonSharpBehaviour {
 		userSelect--;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void userDown() {
@@ -105,7 +105,7 @@ public class adminPanel : UdonSharpBehaviour {
 		userSelect++;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void userMove() {
@@ -119,7 +119,7 @@ public class adminPanel : UdonSharpBehaviour {
 		adminSelect--;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void adminDown() {
@@ -127,7 +127,7 @@ public class adminPanel : UdonSharpBehaviour {
 		adminSelect++;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void adminMove() {
@@ -147,6 +147,10 @@ public class adminPanel : UdonSharpBehaviour {
 			}
 		}
 
+		updateData();
+	}
+
+	public void updateData() {
 		bool isAdmin = adminList.containsAdmin(Networking.LocalPlayer.displayName);
 		respawnButton.SetActive(isAdmin);
 		notAdminUI.SetActive(!isAdmin);
