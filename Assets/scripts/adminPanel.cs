@@ -25,6 +25,7 @@ public class adminPanel : UdonSharpBehaviour {
 	public Transform entranceSpawn;
 	public Transform basementSpawn;
 	public GameObject stagePlayerGameObject;
+	private Vector3 stagePlayerLocation;
 	public GameObject respawnButton;
 	public AdminList adminList;
 	public VRCPickup handlePickup;
@@ -48,6 +49,7 @@ public class adminPanel : UdonSharpBehaviour {
 	public RectTransform adminSelectBox;
 
 	void Start() {
+		stagePlayerLocation = stagePlayerGameObject.transform.position;
 		isOwner = Networking.GetOwner(gameObject) == Networking.LocalPlayer;
 		if(isOwner) OnDeserialization();
 	}
@@ -173,7 +175,8 @@ public class adminPanel : UdonSharpBehaviour {
 		spawnDropdown.value = spawnPosition;
 		stagePlayerToggle.isOn = stagePlayer;
 
-		stagePlayerGameObject.SetActive(stagePlayer);
+		if(stagePlayer) stagePlayerGameObject.transform.position = stagePlayerLocation;
+		else stagePlayerGameObject.transform.position = new Vector3(1000000, 1000000, 1000000);
 
 		userListGUI.text = adminList.userListStr;
 		adminListGUI.text = adminList.adminListStr;
