@@ -1,0 +1,11 @@
+Model Information:
+* title:	Teal Balloon times five
+* source:	https://sketchfab.com/3d-models/teal-balloon-times-five-04409f9b064a4d6282a022606360f0f9
+* author:	Qzmaj (https://sketchfab.com/4nikuz)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Teal Balloon times five" (https://sketchfab.com/3d-models/teal-balloon-times-five-04409f9b064a4d6282a022606360f0f9) by Qzmaj (https://sketchfab.com/4nikuz) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
