@@ -20635,7 +20635,7 @@ PrefabInstance:
     - target: {fileID: 5646399932617036385, guid: 640a203abf8a63047b6331c30c902fbc,
         type: 3}
       propertyPath: _syncMethod
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5647417969397274780, guid: 640a203abf8a63047b6331c30c902fbc,
         type: 3}
