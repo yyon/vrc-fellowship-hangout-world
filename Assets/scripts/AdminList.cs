@@ -6,51 +6,57 @@ using System;
 
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class AdminList : UdonSharpBehaviour {
+	[UdonSynced(UdonSyncMode.None)] public bool allAdmins = true;
 	[HideInInspector] public string[] users = new string[0];
 	[HideInInspector][UdonSynced(UdonSyncMode.None)] public string[] admins = new string[0];
 	[HideInInspector] public string userListStr = "";
 	[HideInInspector] public string adminListStr = "";
 
+	public bool isAdmin = false;
 	private bool isOwner = false;
 
-	public adminPanel panel;
-
-	public static void Append<T>(ref T[] array, T item) {
-		T[] nArray = new T[array.Length + 1];
-		Array.Copy(array, nArray, array.Length);
-		nArray[array.Length] = item;
-		array = nArray;
-	}
-
-	public static void Remove<T>(ref T[] array, int index) {
-		T[] nArray = new T[array.Length - 1];
-		Array.Copy(array, 0, nArray, 0, index - 1);
-		Array.Copy(array, index + 1, nArray, index, array.Length - 1 - index);
-		array = nArray;
-	}
+	public AdminPanel adminPanel;
+	public WorldClock[] clocks;
 
 	public bool containsAdmin(string user) {
-		return Array.IndexOf(admins, user) >= 0;
+		if(user == null) return false;
+		return allAdmins || Array.IndexOf(admins, user) >= 0;
 	}
 
 	public void addAdmin(string user) {
-		Append(ref admins, user);
+		Utils.Append(ref admins, user);
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
 		OnDeserialization();
 	}
 
 	public void removeAdmin(int index) {
-		Remove(ref admins, index);
+		Utils.Remove(ref admins, index);
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
 		OnDeserialization();
 	}
 
-	void Start() {
+	public void setAllAdmins(bool value) {
+		if(allAdmins && !value) {
+			admins = new string[VRCPlayerApi.GetPlayerCount()];
+			VRCPlayerApi[] players = new VRCPlayerApi[VRCPlayerApi.GetPlayerCount()];
+			players = VRCPlayerApi.GetPlayers(players);
+			for(int i = 0; i < players.Length; i++) {
+				admins[i] = players[i].displayName;
+			}
+		}
+
+		allAdmins = value;
+		Networking.SetOwner(Networking.LocalPlayer, gameObject);
+		RequestSerialization();
+		OnDeserialization();
+	}
+
+	public void Start() {
 		isOwner = Networking.GetOwner(gameObject) == Networking.LocalPlayer;
 		if(isOwner) {
-			Append(ref admins, Networking.LocalPlayer.displayName);
+			Utils.Append(ref admins, Networking.LocalPlayer.displayName);
 			RequestSerialization();
 			OnDeserialization();
 		}
@@ -70,31 +76,11 @@ public class AdminList : UdonSharpBehaviour {
 
 	public override void OnPlayerLeft(VRCPlayerApi player) {
 		if(isOwner) {
-			bool change = false, selectChange = false;
 			int index = Array.IndexOf(admins, player.displayName);
 			if(index >= 0) {
-				Remove(ref admins, index);
-				if(admins.Length == 0) Append(ref admins, Networking.LocalPlayer.displayName);
-				change = true;
-			}
-
-			if(panel.adminSelect == admins.Length && panel.adminSelect != 0) {
-				panel.adminSelect--;
-				selectChange = true;
-			}
-
-			if(panel.userSelect == VRCPlayerApi.GetPlayerCount() && panel.userSelect != 0) {
-				panel.userSelect--;
-				selectChange = true;
-			}
-
-			if(change) {
+				Utils.Remove(ref admins, index);
+				if(admins.Length == 0) Utils.Append(ref admins, Networking.LocalPlayer.displayName);
 				RequestSerialization();
-			}
-
-			if(selectChange) {
-				Networking.SetOwner(Networking.LocalPlayer, panel.gameObject);
-				panel.RequestSerialization();
 			}
 		}
 
@@ -102,21 +88,25 @@ public class AdminList : UdonSharpBehaviour {
 	}
 
 	public override void OnDeserialization() {
+		isAdmin = containsAdmin(Networking.LocalPlayer.displayName);
+
 		VRCPlayerApi[] players = new VRCPlayerApi[VRCPlayerApi.GetPlayerCount()];
 		players = VRCPlayerApi.GetPlayers(players);
 
+		users = new string[0];
 		userListStr = "";
 		adminListStr = "";
 		foreach(VRCPlayerApi player in players) {
-			if(containsAdmin(player.displayName)) {
-				adminListStr += player.displayName + "\n";
+			if(!containsAdmin(player.displayName)) {
+				Utils.Append(ref users, player.displayName);
+				userListStr += player.displayName + "\n";
 			}
 			else {
-				Append(ref users, player.displayName);
-				userListStr += player.displayName + "\n";
+				adminListStr += player.displayName + "\n";
 			}
 		}
 
-		panel.OnDeserialization();
+		adminPanel.OnAdminListUpdate();
+		foreach(WorldClock clock in clocks) clock.OnAdminListUpdate();
 	}
 }

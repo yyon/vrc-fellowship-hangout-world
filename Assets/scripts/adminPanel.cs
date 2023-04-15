@@ -1,5 +1,4 @@
-﻿
-using UdonSharp;
+﻿using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
@@ -9,43 +8,76 @@ using TMPro;
 using VRC.SDK3.Components;
 
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
-public class adminPanel : UdonSharpBehaviour {
+public class AdminPanel : UdonSharpBehaviour {
 	[HideInInspector][UdonSynced(UdonSyncMode.None)] public int tab = 0;
 	[UdonSynced(UdonSyncMode.None)] public bool performanceModeOnDefault = false;
-	[UdonSynced(UdonSyncMode.None)] public bool stagePlayer = false;
 	[UdonSynced(UdonSyncMode.None)] public int spawnPosition = 0;
+	[UdonSynced(UdonSyncMode.None)] public bool stagePlayer = false;
+	[UdonSynced(UdonSyncMode.None)] public bool easterEggHuntEnabled = false;
+	[UdonSynced(UdonSyncMode.None)] public bool birthdayDecorationsEnabled = false;
 	[HideInInspector][UdonSynced(UdonSyncMode.None)] public int userSelect = 0;
 	[HideInInspector][UdonSynced(UdonSyncMode.None)] public int adminSelect = 0;
 
 	[HideInInspector] public bool isOwner = false;
 
 	private bool isInitialLoad = true;
-	public performanceMode performanceModeToggle;
+	public TimeCore timeCore;
 	public Transform worldSpawn;
 	public Transform entranceSpawn;
 	public Transform basementSpawn;
 	public GameObject stagePlayerGameObject;
-	public GameObject respawnButton;
+	private Vector3 stagePlayerLocation = Vector3.zero;
+	public GameObject panelRespawnButton;
 	public AdminList adminList;
 	public VRCPickup handlePickup;
+	public GameObject easterEggHunt;
+	public GameObject birthdayDecorations;
+
+	public Color offColor;
+	public Color onColor;
 
 	public GameObject notAdminUI;
 	public GameObject isAdminUI;
 	public TextMeshProUGUI notAdminInfo;
 	public VRCPickup paRadio;
+	public Image allAdminsImage;
+	public TextMeshProUGUI allAdminsText;
 	public Image Tab0;
 	public Image Tab1;
+	public Image Tab2;
 	public GameObject Tab0Container;
 	public GameObject Tab1Container;
-	public Toggle perfModeToggle;
-	public Dropdown spawnDropdown;
-	public Toggle stagePlayerToggle;
+	public GameObject Tab2Container;
+
+	public Image perfModeImage;
+	public TextMeshProUGUI perfModeText;
+	public TextMeshProUGUI spawnText;
+	public Image stagePlayerImage;
+	public TextMeshProUGUI stagePlayerText;
+	public Image easterEggHuntImage;
+	public TextMeshProUGUI easterEggHuntText;
+	public Image birthdayDecorationsImage;
+	public TextMeshProUGUI birthdayDecorationsText;
+
 	public TextMeshProUGUI userListGUI;
 	public RectTransform userSelectBox;
 	public TextMeshProUGUI adminListGUI;
 	public RectTransform adminSelectBox;
 
+	public Slider seasonSlider;
+	public Slider dayNightSpeedSlider;
+	public TextMeshProUGUI dayNightSpeedLabel;
+	public Slider weatherSlider;
+	public Image seasonChangeImage;
+	public TextMeshProUGUI seasonChangeText;
+	public Image dayNightChangeImage;
+	public TextMeshProUGUI dayNightChangeText;
+	public Image weatherChangeImage;
+	public TextMeshProUGUI weatherChangeText;
+	public TextMeshProUGUI worldDebugInfoText;
+
 	void Start() {
+		timeCore.registerForUpdates(this);
 		isOwner = Networking.GetOwner(gameObject) == Networking.LocalPlayer;
 		if(isOwner) OnDeserialization();
 	}
@@ -58,42 +90,65 @@ public class adminPanel : UdonSharpBehaviour {
 		return adminList.containsAdmin(requestedOwner.displayName);
 	}
 
+	public void allAdminsChange() {
+		adminList.setAllAdmins(!adminList.allAdmins);
+	}
+
 	public void ClickTab0() { ClickTab(0); }
 	public void ClickTab1() { ClickTab(1); }
+	public void ClickTab2() { ClickTab(2); }
 	public void ClickTab(int index) {
 		tab = index;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
+	//Tab 0
+
 	public void perfModeChange() {
-		performanceModeOnDefault = perfModeToggle.isOn;
+		performanceModeOnDefault = !performanceModeOnDefault;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void spawnChange() {
-		spawnPosition = spawnDropdown.value;
+		spawnPosition = (spawnPosition + 1) % 2;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void stagePlayerChange() {
-		stagePlayer = stagePlayerToggle.isOn;
+		stagePlayer = !stagePlayer;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
+	public void easterEggHuntChange() {
+		easterEggHuntEnabled = !easterEggHuntEnabled;
+		Networking.SetOwner(Networking.LocalPlayer, gameObject);
+		RequestSerialization();
+		updateData();
+	}
+
+	public void birthdayDecorationsChange() {
+		birthdayDecorationsEnabled = !birthdayDecorationsEnabled;
+		Networking.SetOwner(Networking.LocalPlayer, gameObject);
+		RequestSerialization();
+		updateData();
+	}
+
+	//Tab 1
+
 	public void userUp() {
-		if(userSelect == 0) return;
+		if(userSelect <= 0) return;
 		userSelect--;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void userDown() {
@@ -101,18 +156,13 @@ public class adminPanel : UdonSharpBehaviour {
 		userSelect++;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void userMove() {
 		if(adminList.users.Length == 0) return;
-		adminList.addAdmin(adminList.users[userSelect]);
-		if(userSelect > 0) {
-			userSelect--;
-			Networking.SetOwner(Networking.LocalPlayer, gameObject);
-			RequestSerialization();
-			OnDeserialization();
-		}
+		userSelect--;
+		adminList.addAdmin(adminList.users[userSelect + 1]);
 	}
 
 	public void adminUp() {
@@ -120,7 +170,7 @@ public class adminPanel : UdonSharpBehaviour {
 		adminSelect--;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void adminDown() {
@@ -128,31 +178,103 @@ public class adminPanel : UdonSharpBehaviour {
 		adminSelect++;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
-		OnDeserialization();
+		updateData();
 	}
 
 	public void adminMove() {
 		if(adminList.admins.Length == 1) return;
-		adminList.removeAdmin(adminSelect);
-		if(adminSelect > 0) {
-			adminSelect--;
-			Networking.SetOwner(Networking.LocalPlayer, gameObject);
-			RequestSerialization();
-			OnDeserialization();
-		}
+		adminSelect--;
+		adminList.removeAdmin(adminSelect + 1);
+	}
+
+	//Tab 2
+
+	public void seasonChange() {
+		timeCore.setSeasonNetworked(timeCore.isSeasonChange(), seasonSlider.value);
+	}
+
+	public void dayNightSpeedChange() {
+		timeCore.setDayNightLengthNetworked(dayNightSpeedSlider.value);
+	}
+
+	public void weatherChange() {
+		timeCore.setWeatherNetworked(false, weatherSlider.value);
+	}
+
+	public void seasonChangeChange() {
+		timeCore.setSeasonNetworked(!timeCore.isSeasonChange());
+	}
+
+	public void dayNightChangeChange() {
+		timeCore.setDayNightNetworked(!timeCore.isDayNightChange());
+	}
+
+	public void weatherChangeChange() {
+		timeCore.setWeatherNetworked(!timeCore.isWeatherChange());
 	}
 
 	public override void OnDeserialization() {
 		if(isInitialLoad) {
 			isInitialLoad = false;
-			if(spawnPosition == 1) Networking.LocalPlayer.TeleportTo(basementSpawn.position, basementSpawn.rotation);
-			if(performanceModeToggle.performanceModeOn != performanceModeOnDefault) {
-				performanceModeToggle.Interact();
+			if(spawnPosition == 0) Networking.LocalPlayer.TeleportTo(entranceSpawn.position, entranceSpawn.rotation);
+			else if(spawnPosition == 1) Networking.LocalPlayer.TeleportTo(basementSpawn.position, basementSpawn.rotation);
+
+			if(timeCore.localPerformanceMode != performanceModeOnDefault) {
+				timeCore.setPerformanceMode(performanceModeOnDefault);
 			}
 		}
 
-		bool isAdmin = adminList.containsAdmin(Networking.LocalPlayer.displayName);
-		respawnButton.SetActive(isAdmin);
+		updateData();
+	}
+
+	public void OnAdminListUpdate() {
+		if(isOwner) {
+			bool changeIndex = false;
+			if(userSelect < 0 || userSelect > Math.Max(adminList.users.Length - 1, 0)) {
+				userSelect = Math.Max(0, Math.Min(userSelect, adminList.users.Length - 1));
+				changeIndex = true;
+			}
+
+			if(adminSelect < 0 || adminSelect > Math.Max(adminList.admins.Length - 1, 0)) {
+				adminSelect = Math.Max(0, Math.Min(adminSelect, adminList.admins.Length - 1));
+				changeIndex = true;
+			}
+
+			if(changeIndex) {
+				RequestSerialization();
+			}
+		}
+
+		updateData();
+	}
+
+	public void OnTimeCoreUpdate() {
+		seasonSlider.SetValueWithoutNotify((float)timeCore.latestSeasonPercent);
+		dayNightSpeedSlider.SetValueWithoutNotify((float)timeCore.dayNightLengthInMinutes);
+		dayNightSpeedLabel.text = Math.Floor(timeCore.dayNightLengthInMinutes) + "min";
+		weatherSlider.SetValueWithoutNotify((float)timeCore.latestWeatherPercent);
+
+		seasonChangeText.text = timeCore.isSeasonChange() ? "Enabled" : "Disabled";
+		seasonChangeImage.color = timeCore.isSeasonChange() ? onColor : offColor;
+
+		dayNightChangeText.text = timeCore.isDayNightChange() ? "Enabled" : "Disabled";
+		dayNightChangeImage.color = timeCore.isDayNightChange() ? onColor : offColor;
+
+		weatherChangeText.text = timeCore.isWeatherChange() ? "Enabled" : "Disabled";
+		weatherChangeImage.color = timeCore.isWeatherChange() ? onColor : offColor;
+
+		double currentSeconds = Utils.UnixSeconds();
+		double seasonTimeOffset = timeCore.seasonStart <= 0 ? -timeCore.seasonStart : currentSeconds - timeCore.seasonStart;
+		double dayNightTimeOffset = timeCore.dayNightStart <= 0 ? -timeCore.dayNightStart : currentSeconds - timeCore.dayNightStart;
+
+		worldDebugInfoText.text = String.Format("Debug Info: start: {0,10:#.####}, {1,10:#.####}, {2,10:#.####}, offset: {3,10:#.####}, {4,10:#.####}, latestPercent: {5,10:#.####}, {6,10:#.####}, {7,10:#.####}, latestWorldDate: {8}, latestWind: ({9}, {10}, {11}), length: {12,10:#.####}, {13,10:#.####}, {14,10:#.####}", timeCore.seasonStart, timeCore.dayNightStart, timeCore.weatherInfo, seasonTimeOffset, dayNightTimeOffset, timeCore.latestSeasonPercent, timeCore.latestdayNightPercent, timeCore.latestWeatherPercent, timeCore.latestWorldDate.ToShortDateString(), timeCore.latestWind.x, timeCore.latestWind.y, timeCore.latestWind.z, timeCore.yearLengthInMinutes, timeCore.dayNightLengthInMinutes, timeCore.weatherScaleInMinutes);
+
+		Debug.Log(timeCore.latestWind);
+	}
+
+	public void updateData() {
+		bool isAdmin = adminList.isAdmin;
+		panelRespawnButton.SetActive(isAdmin);
 		notAdminUI.SetActive(!isAdmin);
 		isAdminUI.SetActive(isAdmin);
 		paRadio.pickupable = isAdmin;
@@ -167,17 +289,32 @@ public class adminPanel : UdonSharpBehaviour {
 			worldSpawn.rotation = basementSpawn.rotation;
 		}
 
-		Tab0.color = new Color(1, 1, 1, (tab == 0) ? 0.4f : 0.15f);
-		Tab1.color = new Color(1, 1, 1, (tab == 1) ? 0.4f : 0.15f);
+		allAdminsText.text = adminList.allAdmins ? "Enabled" : "Disabled";
+		allAdminsImage.color = adminList.allAdmins ? onColor : offColor;
+
+		Tab0.color = tab == 0 ? onColor : offColor;
+		Tab1.color = tab == 1 ? onColor : offColor;
+		Tab2.color = tab == 2 ? onColor : offColor;
 
 		Tab0Container.SetActive(tab == 0);
 		Tab1Container.SetActive(tab == 1);
+		Tab2Container.SetActive(tab == 2);
 
-		perfModeToggle.isOn = performanceModeOnDefault;
-		spawnDropdown.value = spawnPosition;
-		stagePlayerToggle.isOn = stagePlayer;
+		perfModeText.text = performanceModeOnDefault ? "Enabled" : "Disabled";
+		perfModeImage.color = performanceModeOnDefault ? onColor : offColor;
+		spawnText.text = new string[] { "Entrance", "Basement" }[spawnPosition];
+		stagePlayerText.text = stagePlayer ? "Enabled" : "Disabled";
+		stagePlayerImage.color = stagePlayer ? onColor : offColor;
+		easterEggHuntText.text = easterEggHuntEnabled ? "Enabled" : "Disabled";
+		easterEggHuntImage.color = easterEggHuntEnabled ? onColor : offColor;
+		birthdayDecorationsText.text = birthdayDecorationsEnabled ? "Enabled" : "Disabled";
+		birthdayDecorationsImage.color = birthdayDecorationsEnabled ? onColor : offColor;
 
-		stagePlayerGameObject.SetActive(stagePlayer);
+		if(stagePlayerLocation == Vector3.zero) stagePlayerLocation = stagePlayerGameObject.transform.position;
+		if(stagePlayer) stagePlayerGameObject.transform.position = stagePlayerLocation;
+		else stagePlayerGameObject.transform.position = new Vector3(1000000, 1000000, 1000000);
+		easterEggHunt.SetActive(easterEggHuntEnabled);
+		birthdayDecorations.SetActive(birthdayDecorationsEnabled);
 
 		userListGUI.text = adminList.userListStr;
 		adminListGUI.text = adminList.adminListStr;

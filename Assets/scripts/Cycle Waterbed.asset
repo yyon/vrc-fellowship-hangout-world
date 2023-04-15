@@ -428,8 +428,5 @@ MonoBehaviour:
   - type: 5
     uid: 3b7482a9-050c-4b3a-b54e-21d8b2f9b0c2
     jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":0.0,"y":130.0,"width":281.0,"height":332.0}}'
-  viewTransform:
-    position: {x: -121.333336, y: 295.33334}
-    scale: 0.65751624
   version: 1.0.0
   showAssembly: 0

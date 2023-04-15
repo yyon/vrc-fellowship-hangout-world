@@ -1,7 +1,1 @@
-make sure all uvs are "UVMap" (need when joining)
-interior only walls - 0.15m
-outer wall - 0.375m
-beems - 0.4m
-outlets - 0.3m above floor
-indoor light color - #FFE9B1 (4000K)
-outdoor light color - #d1deff (9000K)
+project uses https://github.com/codec-xyz/game_export (Game Export Blender Addon) to export
