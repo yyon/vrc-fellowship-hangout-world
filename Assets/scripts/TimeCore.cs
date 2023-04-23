@@ -385,8 +385,11 @@ public class TimeCore : UdonSharpBehaviour {
 		latestWorldDate = getDate(currentSeconds, out latestSeasonPercent, out double timeInDays);
 		latestWeatherPercent = getWeather(currentSeconds, out latestWind);
 
+		double dayNightSpeedRPS = 0;
+		if(dayNightStart > 0) dayNightSpeedRPS = 1 / (dayNightLengthInMinutes * 60);
+
 		setSeason(latestWorldDate, latestWeatherPercent, latestWind);
-		setDayNight(latestdayNightPercent, 1 / (dayNightLengthInMinutes * 60), latestWeatherPercent);
+		setDayNight(latestdayNightPercent, dayNightSpeedRPS, latestWeatherPercent);
 
 		sendUpdates();
 	}
