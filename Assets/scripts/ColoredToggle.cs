@@ -11,8 +11,8 @@ public class ColoredToggle : UdonSharpBehaviour {
 	[Header("Settings")]
 	public Color offColor;
 	public Color onColor;
-	public string onText;
 	public string offText;
+	public string onText;
 	public TextMeshPro statusText;
 	public Renderer statusRenderer;
 	public TextMeshProUGUI statusTextCanvas;

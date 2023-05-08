@@ -48,6 +48,7 @@ public class TimeCore : UdonSharpBehaviour {
 
 	[Header("World Things")]
 	public AdminList adminList;
+	public AdminPanel adminPanel;
 	public UdonSharpBehaviour[] registeredUpdates;
 	public Renderer MainIsland;
 	public Material GrassMaterial;
@@ -93,6 +94,7 @@ public class TimeCore : UdonSharpBehaviour {
 	[HideInInspector] public bool isOwner = false;
 
 	void Start() {
+		adminPanel.Log("TimeCore Start");
 		SunValue = Sun.intensity;
 		isOwner = Networking.GetOwner(gameObject) == Networking.LocalPlayer;
 		if(isOwner) {
@@ -147,6 +149,7 @@ public class TimeCore : UdonSharpBehaviour {
 
 	public void setDayNightNetworked(bool change, double percent = -1) {
 		if(!adminList.isAdmin) return;
+		adminPanel.Log("TimeCore setDayNightNetworked");
 		double currentSeconds = Utils.UnixSeconds();
 		double offset;
 		if(percent != -1) offset = percent * dayNightLengthInMinutes * 60;
@@ -160,6 +163,7 @@ public class TimeCore : UdonSharpBehaviour {
 
 	public void setDayNightLengthNetworked(double lengthInMinutes) {
 		if(!adminList.isAdmin) return;
+		adminPanel.Log("TimeCore setDayNightLengthNetworked");
 		double currentSeconds = Utils.UnixSeconds();
 		double dayNightTimeOffset = dayNightStart <= 0 ? -dayNightStart : currentSeconds - dayNightStart;
 		double dayNightPercent = (dayNightTimeOffset / (dayNightLengthInMinutes * 60)) % 1;
@@ -177,6 +181,7 @@ public class TimeCore : UdonSharpBehaviour {
 
 	public void setSeasonNetworked(bool change, double percent = -1) {
 		if(!adminList.isAdmin) return;
+		adminPanel.Log("TimeCore setSeasonNetworked");
 		double currentSeconds = Utils.UnixSeconds();
 		double offset;
 		if(percent != -1) offset = percent * yearLengthInMinutes * 60;
@@ -191,6 +196,7 @@ public class TimeCore : UdonSharpBehaviour {
 
 	public void setYearLengthNetworked(double lengthInMinutes) {
 		if(!adminList.isAdmin) return;
+		adminPanel.Log("TimeCore setYearLengthNetworked");
 		double currentSeconds = Utils.UnixSeconds();
 		double seasonTimeOffset = seasonStart <= 0 ? -seasonStart : currentSeconds - seasonStart;
 		double seasonPercent = (seasonTimeOffset / (yearLengthInMinutes * 60)) % 1;
@@ -208,6 +214,7 @@ public class TimeCore : UdonSharpBehaviour {
 
 	public void setWeatherNetworked(bool change, double percent = -1) {
 		if(!adminList.isAdmin) return;
+		adminPanel.Log("TimeCore setWeatherNetworked");
 		if(change) weatherInfo = 1;
 		else if(percent == -1) {
 			double currentSeconds = Utils.UnixSeconds();
@@ -406,6 +413,7 @@ public class TimeCore : UdonSharpBehaviour {
 		//	isInitialLoad = false;
 		//}
 
+		adminPanel.Log("TimeCore OnDeserialization");
 		dynamicUpdate();
 	}
 }

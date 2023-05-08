@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -61,5 +62,22 @@ public static class Utils {
 		return Mathf.PerlinNoise(position.x * 0.25f, position.y * 0.25f) * 0.1f
 			+ Mathf.PerlinNoise(position.x * 0.5f, position.y * 0.5f) * 0.3f
 			+ Mathf.PerlinNoise(position.x, position.y) * 0.6f;
+	}
+
+	public static T PickRandom<T>(T[] values) {
+		return values[UnityEngine.Random.Range(0, values.Length)];
+	}
+
+	public static T PickRandom<T>(T[] values, float[] probabilities) {
+		float value = UnityEngine.Random.value;
+		float probabilitySum = 0;
+		foreach(float probability in probabilities) probabilitySum += probability;
+
+		float iProbPos = 0;
+		for(int i = 0; i < probabilities.Length; i++) {
+			iProbPos += probabilities[i] / probabilitySum;
+			if(value <= iProbPos) return values[i];
+		}
+		return values[0];
 	}
 }

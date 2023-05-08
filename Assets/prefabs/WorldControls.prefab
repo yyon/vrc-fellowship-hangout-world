@@ -66,6 +66,9 @@ MonoBehaviour:
   localPerformanceMode: 1
   localFogMode: 1
   localParticleEffects: 1
+  seasonStart: 0
+  dayNightStart: 0
+  weatherInfo: 1
   dayNightLengthInMinutes: 40
   yearLengthInMinutes: 240
   weatherScaleInMinutes: 30
@@ -86,6 +89,7 @@ MonoBehaviour:
   FogNight: {r: 0.41099995, g: 0.20138997, b: 0.39702597, a: 1}
   cityNightLightsContainer: {fileID: 0}
   adminList: {fileID: 7673707915023714469}
+  adminPanel: {fileID: 6834488143685875645}
   registeredUpdates: []
   MainIsland: {fileID: 0}
   GrassMaterial: {fileID: 0}

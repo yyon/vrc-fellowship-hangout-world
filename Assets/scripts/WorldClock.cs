@@ -18,10 +18,12 @@ public class WorldClock : UdonSharpBehaviour {
 	public TextMeshProUGUI timeIndicator;
 
 	public void Start() {
+		timeCore.adminPanel.Log("WorldClock(" + name + ") Start");
 		timeCore.registerForUpdates(this);
 	}
 
 	public void dayNightChange() {
+		timeCore.adminPanel.Log("WorldClock(" + name + ") dayNightChange");
 		timeCore.setDayNightNetworked(timeCore.isDayNightChange(), dayNightSlider.value);
 	}
 

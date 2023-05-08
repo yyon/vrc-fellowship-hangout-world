@@ -128,11 +128,12 @@ Shader "Silent/Volumetric Fake Lights"
                 #if UNITY_REVERSED_Z
                     if (z == 0)
                 #else
-                    if (z == 1)
+                    if(z == 1)
                 #endif
                 z = 0;
 
                 float sceneDepth = CorrectedLinearEyeDepth (z, (ps.ray.w/ps.projPos.w));
+                sceneDepth = sceneDepth < 0 ? _ProjectionParams.z : sceneDepth;
                 float3 depthPosition = sceneDepth * ps.ray / ps.projPos.z + _WorldSpaceCameraPos;
 
                 float finalLight = 0; float finalSphere = 0;

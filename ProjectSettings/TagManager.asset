@@ -29,7 +29,7 @@ TagManager:
   - reserved4
   - pool
   - ht8b
-  - 
+  - UiNotInMirror
   - PlayerOnly
   - MovingPlatforms
   - Pens
