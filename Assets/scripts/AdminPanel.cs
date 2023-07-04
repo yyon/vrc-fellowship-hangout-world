@@ -27,6 +27,7 @@ public class AdminPanel : UdonSharpBehaviour {
 	public Transform worldSpawn;
 	public Transform entranceSpawn;
 	public Transform basementSpawn;
+	public Transform stageIslandSpawn;
 	public GameObject stagePlayerGameObject;
 	private Vector3 stagePlayerLocation = Vector3.zero;
 	public GameObject panelRespawnButton;
@@ -177,7 +178,7 @@ public class AdminPanel : UdonSharpBehaviour {
 	}
 
 	public void spawnChange() {
-		spawnPosition = (spawnPosition + 1) % 2;
+		spawnPosition = (spawnPosition + 1) % 3;
 		Networking.SetOwner(Networking.LocalPlayer, gameObject);
 		RequestSerialization();
 		updateData();
@@ -287,6 +288,7 @@ public class AdminPanel : UdonSharpBehaviour {
 			isInitialLoad = false;
 			if(spawnPosition == 0) Networking.LocalPlayer.TeleportTo(entranceSpawn.position, entranceSpawn.rotation);
 			else if(spawnPosition == 1) Networking.LocalPlayer.TeleportTo(basementSpawn.position, basementSpawn.rotation);
+			else if(spawnPosition == 2) Networking.LocalPlayer.TeleportTo(stageIslandSpawn.position, stageIslandSpawn.rotation);
 
 			if(timeCore.localPerformanceMode != performanceModeOnDefault) {
 				timeCore.setPerformanceMode(performanceModeOnDefault);
@@ -355,6 +357,10 @@ public class AdminPanel : UdonSharpBehaviour {
 			worldSpawn.position = basementSpawn.position;
 			worldSpawn.rotation = basementSpawn.rotation;
 		}
+		else if(spawnPosition == 2) {
+			worldSpawn.position = stageIslandSpawn.position;
+			worldSpawn.rotation = stageIslandSpawn.rotation;
+		}
 
 		allAdminsText.text = adminList.allAdmins ? "Enabled" : "Disabled";
 		allAdminsImage.color = adminList.allAdmins ? onColor : offColor;
@@ -371,7 +377,7 @@ public class AdminPanel : UdonSharpBehaviour {
 
 		perfModeText.text = performanceModeOnDefault ? "Enabled" : "Disabled";
 		perfModeImage.color = performanceModeOnDefault ? onColor : offColor;
-		spawnText.text = new string[] { "Entrance", "Basement" }[spawnPosition];
+		spawnText.text = new string[] { "Entrance", "Basement", "Stage Island" }[spawnPosition];
 		stagePlayerText.text = stagePlayer ? "Enabled" : "Disabled";
 		stagePlayerImage.color = stagePlayer ? onColor : offColor;
 		easterEggHuntText.text = easterEggHuntEnabled ? "Enabled" : "Disabled";
