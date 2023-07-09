@@ -126,6 +126,11 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Twortles
+      objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
       propertyPath: m_Mesh
@@ -228,6 +233,11 @@ PrefabInstance:
       value: Your avatar truly is a work of art. Who knew polygons could look so
         fine?
       objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Marn
+      objectReference: {fileID: 0}
     - target: {fileID: 7669492080390817153, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
       propertyPath: m_Size.y
@@ -322,6 +332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: They can always successfully use Personality 3 with Friend Group 5!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Blondie
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
@@ -434,6 +449,11 @@ PrefabInstance:
       propertyPath: m_text
       value: You are always the most adorable. All must prepare for an overdose of
         adorable, resistance is futile!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Harmoni Calliope
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
@@ -556,6 +576,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Whether you stick to one key or use all 12, we loved your performance!
       objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: itsmarie
+      objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
       propertyPath: m_Mesh
@@ -657,6 +682,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Your roleplaying skills are unparalleled. That was some good RP!
       objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Drith
+      objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
       propertyPath: m_Mesh
@@ -757,6 +787,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Everyone thinks you are fantastic at handling your balls!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Enny
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
@@ -868,6 +903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: We always love seeing the in-game screenshots you have taken!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: kloudxx
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
@@ -981,6 +1021,11 @@ PrefabInstance:
       value: You've been around a long time and your wisdom of the group knows no
         bounds.
       objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: BillyTan
+      objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
       propertyPath: m_Mesh
@@ -1082,6 +1127,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Your laughter is contagious... And when you get really going, dangerous!
       objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: BillyTan
+      objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
       propertyPath: m_Mesh
@@ -1173,6 +1223,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Your music selection is always on point. You know how to set the perfect
         mood!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
@@ -1285,6 +1340,11 @@ PrefabInstance:
       propertyPath: m_text
       value: You are always spreading hillarity and humor wherever you go, one smile
         at a time!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Blondie
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
@@ -1407,6 +1467,11 @@ PrefabInstance:
       propertyPath: m_text
       value: You are the star of the show at any dancing event!
       objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Winterborn
+      objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
       propertyPath: m_Mesh
@@ -1517,6 +1582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Are you alive or dead? Oh, you are just asleep again!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Neko Nekoya
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
@@ -1629,6 +1699,11 @@ PrefabInstance:
       propertyPath: m_text
       value: You are the true dispenser of funny pictures and videos.
       objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Enny
+      objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
       propertyPath: m_Mesh
@@ -1729,6 +1804,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: You are the realest homie. We can always count on you for a little support.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: WholesomeJenn
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
@@ -1846,6 +1926,11 @@ PrefabInstance:
       propertyPath: m_text
       value: You're the last to log off. Sleep doesn't defeat you until you see the
         sun start to rise.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193202920537121863, guid: e9bf27368254bf7429759ee3f2c2a618,
+        type: 3}
+      propertyPath: m_text
+      value: Drith
       objectReference: {fileID: 0}
     - target: {fileID: 7349239427336003640, guid: e9bf27368254bf7429759ee3f2c2a618,
         type: 3}
