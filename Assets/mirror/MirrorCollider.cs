@@ -31,7 +31,6 @@ public class MirrorCollider : UdonSharpBehaviour {
 		bool _isInCollider = Mathf.Abs(localPosition.x) < collider.size.x / 2
 			&& Mathf.Abs(localPosition.y) < collider.size.y / 2
 			&& Mathf.Abs(localPosition.z) < collider.size.z / 2;
-		Debug.Log(panel.name + " " + localPosition);
 
 		//bool _isInCollider = collider.bounds.Contains(Networking.LocalPlayer.GetPosition());
 		if(isInCollider != _isInCollider) {

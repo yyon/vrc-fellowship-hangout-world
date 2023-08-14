@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1745168a5e4945145b2e62c2e61d3041, type: 3}
+  m_Name: Frame001-Light
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: d0fb77b9855f5944ba0d734f1b9aa9ac, type: 2}
+  textureSlot: 
+  isSmallerDimensionAlwaysOne: 1
+  photoFrames:
+  - {fileID: 919132149155446097, guid: 4f2b8b3e13127ff49bbeb85a78291286, type: 3}
+  - {fileID: 919132149155446097, guid: d47ea32edd61aeb47b502b1c59ca83c1, type: 3}
+  - {fileID: 919132149155446097, guid: 7d2da2e5784f3464e9cbd16e78bfd101, type: 3}
+  - {fileID: 919132149155446097, guid: d3b6f5aa3aed4be49999c01879e81428, type: 3}
+  - {fileID: 919132149155446097, guid: 97ea91be9e1b9d143b32ea6e0ab8d8a2, type: 3}
+  - {fileID: 919132149155446097, guid: 30c18f2f947cfab479ee87a5b6c3c3f6, type: 3}
+  - {fileID: 919132149155446097, guid: d753037de1b48d845a5584129276ea28, type: 3}
+  - {fileID: 919132149155446097, guid: d60d7eaa2e638c84ba3a25b2399bc479, type: 3}
+  - {fileID: 919132149155446097, guid: 087dadc3ce899544e9b4f639f6b92be0, type: 3}
+  - {fileID: 919132149155446097, guid: 926e6d8054b6af14f8ad2ff5b2d8e165, type: 3}
+  - {fileID: 919132149155446097, guid: 6d2b4d948adc8ca47a4004e586f9823f, type: 3}
+  - {fileID: 919132149155446097, guid: 3d22f4b61b94fd54488325d0af588566, type: 3}
+  - {fileID: 919132149155446097, guid: 9a1da17545b60254cbe2d95c4d43e483, type: 3}
+  - {fileID: 919132149155446097, guid: 6ab49c53e92ad43428dfc46b995f823f, type: 3}
+  - {fileID: 919132149155446097, guid: 015f6e94d8269904398dbdb22acdb363, type: 3}
+  - {fileID: 919132149155446097, guid: 248ead63042dfcd44be0cf802daeea9a, type: 3}
+  - {fileID: 919132149155446097, guid: 0b6c3542a604af242bb7416bf9719ad3, type: 3}
+  - {fileID: 919132149155446097, guid: f824309e58f36954ebb5aded6756ed08, type: 3}
+  - {fileID: 919132149155446097, guid: fec19b354b1642e41af2bfcf85589a48, type: 3}
+  - {fileID: 919132149155446097, guid: 430253e9c96f81a46adb4c90175aa62b, type: 3}
+  - {fileID: 919132149155446097, guid: be319fffa9d6d4b429e5d905c11799c2, type: 3}
+  - {fileID: 919132149155446097, guid: 9be5cc879597b4d49afa9a6613277172, type: 3}
+  aspectRatios:
+  - {x: 1, y: 1.5}
+  - {x: 1, y: 1.85}
+  - {x: 1, y: 1}
+  - {x: 1, y: 2.5}
+  - {x: 1, y: 2.39}
+  - {x: 1, y: 2}
+  - {x: 1, y: 3.5}
+  - {x: 1, y: 3}
+  - {x: 1, y: 4}
+  - {x: 1.5, y: 1}
+  - {x: 1.85, y: 1}
+  - {x: 2, y: 1}
+  - {x: 2.5, y: 1}
+  - {x: 2.39, y: 1}
+  - {x: 3, y: 1}
+  - {x: 3, y: 4}
+  - {x: 3.5, y: 1}
+  - {x: 4, y: 1}
+  - {x: 9, y: 16}
+  - {x: 9, y: 21}
+  - {x: 16, y: 9}
+  - {x: 21, y: 9}

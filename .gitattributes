@@ -1,8 +1,8 @@
 # Unity files
 *.anim                  text eol=lf
 *.asmdef                text eol=lf
-LightingData.asset      binary
 *.asset                 text eol=lf
+LightingData.asset      binary
 *.controller            text eol=lf
 *.mat                   text eol=lf
 *.meta                  text eol=lf
