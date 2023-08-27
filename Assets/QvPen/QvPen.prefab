@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 4665613747212488055}
   - component: {fileID: 1101742507055325548}
   - component: {fileID: 1101742507055325551}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &4665613747212488055
 MonoBehaviour:
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 3381972115934986624}
   - component: {fileID: 5022066286635384012}
   - component: {fileID: 3064853695455084578}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 6380737818336683531}
   - component: {fileID: 8951449745359086623}
   - component: {fileID: 7469586366371140729}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 7641741652948637894}
   - component: {fileID: 7048717263619930426}
   - component: {fileID: 7018674775877073415}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 9182030289004932969}
   - component: {fileID: 3501731113216803702}
   - component: {fileID: 3501731113216803697}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &9182030289004932969
 MonoBehaviour:
@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 2892510261504339432}
   - component: {fileID: 1266734160663313971}
   - component: {fileID: 9045506645998269994}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 6432942880221340922}
   - component: {fileID: 4548856937181367102}
   - component: {fileID: 8670550573527490378}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 8083329451277179775}
   - component: {fileID: 3064770082335254062}
   - component: {fileID: 8498263507266131907}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 7860408433845986635}
   - component: {fileID: 8339377251859726730}
   - component: {fileID: 2373484375847145858}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7641209430874700754}
   - component: {fileID: 4793228310379865984}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &4477321702767674017
 GameObject:
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 7842289934313772595}
   - component: {fileID: 851072777271856572}
   - component: {fileID: 4616330567183700814}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1417,7 +1417,7 @@ GameObject:
   - component: {fileID: 208483312491971805}
   - component: {fileID: 2038444847532285980}
   - component: {fileID: 5692874088167419924}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1496,7 +1496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7201457063545936473}
   - component: {fileID: 7601936019851003995}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1543,7 +1543,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &6587774803469267525
 GameObject:
@@ -1657,7 +1657,7 @@ GameObject:
   - component: {fileID: 3408942751783726305}
   - component: {fileID: 6970241117518987518}
   - component: {fileID: 6970241117518987513}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1703,7 +1703,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3408942751783726305
 MonoBehaviour:
@@ -1776,7 +1776,7 @@ GameObject:
   - component: {fileID: 2782598994744782244}
   - component: {fileID: 6173773082141733602}
   - component: {fileID: 3747012354239461067}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2148,7 +2148,7 @@ GameObject:
   - component: {fileID: 4410756221920732867}
   - component: {fileID: 2564953730833220098}
   - component: {fileID: 8130035059164779018}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2225,7 +2225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4290919150557384201}
   - component: {fileID: 795775808636242013}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2272,7 +2272,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &8003440975456572750
 GameObject:
@@ -2284,7 +2284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6314863400514578809}
   - component: {fileID: 6714252752372644731}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2331,7 +2331,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1001 &6642177232197886379
 PrefabInstance:

@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 6006692159554933810}
   - component: {fileID: 2195267187958328950}
   - component: {fileID: 5267046565720172560}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &6006692159554933810
 MonoBehaviour:
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 1397523575339428818}
   - component: {fileID: 2403020242108155365}
   - component: {fileID: 2403020242108155366}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!222 &2403020242108155365
 CanvasRenderer:
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 1884417711247488392}
   - component: {fileID: 2889892078075337659}
   - component: {fileID: 2889892078075337660}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!222 &2889892078075337659
 CanvasRenderer:
@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 1227009061888499096}
   - component: {fileID: 1128603071610485081}
   - component: {fileID: 6693121557354277201}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

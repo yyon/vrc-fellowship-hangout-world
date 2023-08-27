@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6479274612950400587}
   - component: {fileID: 1593917941632586324}
   - component: {fileID: 1593917941632586325}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &6479274612950400587
 MonoBehaviour:
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1261422437400185372}
   - component: {fileID: 2575293049152939051}
   - component: {fileID: 2575293049152939048}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!222 &2575293049152939051
 CanvasRenderer:
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 1995157730418276321}
   - component: {fileID: 368896994329613088}
   - component: {fileID: 6221073930533487400}
-  m_Layer: 2
+  m_Layer: 24
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
