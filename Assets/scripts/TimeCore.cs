@@ -127,12 +127,13 @@ public class TimeCore : UdonSharpBehaviour {
 	public void setPerformanceMode(bool value) {
 		localPerformanceMode = value;
 		Sun.gameObject.SetActive(!localPerformanceMode);
+		Fog.gameObject.SetActive(!localPerformanceMode && localFogMode != 0);
 		sendUpdates();
 	}
 
 	public void setFogMode(int value) {
 		localFogMode = value;
-		Fog.gameObject.SetActive(localFogMode != 0);
+		Fog.gameObject.SetActive(!localPerformanceMode && localFogMode != 0);
 		if(localFogMode == 1) Fog.material.SetFloat("_Intensity", 1);
 		if(localFogMode == 2) Fog.material.SetFloat("_Intensity", 10);
 		dynamicUpdate();
