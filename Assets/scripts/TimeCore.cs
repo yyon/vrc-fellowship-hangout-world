@@ -14,11 +14,14 @@ using static VRC.Core.ApiInfoPushSystem;
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class TimeCore : UdonSharpBehaviour {
 	[Header("Settings")]
+	public float updateIntervalSeconds = 0.5f;
 	public bool localPerformanceMode = true;
 	public int localFogMode = 1;
 	public bool localParticleEffects = true;
 	//start variables: 0 or less is constant offset (seconds), greater than 0 is start in unix time (seconds)
+	public bool pickSeasonAtInit = true;
 	[UdonSynced(UdonSyncMode.None)] public double seasonStart = 0;
+	public bool pickRandomDayNightAtInit = true;
 	[UdonSynced(UdonSyncMode.None)] public double dayNightStart = 0;
 	//weatherInfo: 0 or less is weather strength, greater than 0 is weather offset for procedural generation
 	[UdonSynced(UdonSyncMode.None)] public double weatherInfo = 1;
@@ -100,11 +103,13 @@ public class TimeCore : UdonSharpBehaviour {
 		if(isOwner) {
 			double currentSeconds = UnixSeconds();
 			UnityEngine.Random.InitState((int)Time.time);
-			dayNightStart = currentSeconds - UnityEngine.Random.Range(0, (float)dayNightLengthInMinutes * 60);
+			if(pickRandomDayNightAtInit) dayNightStart = currentSeconds - UnityEngine.Random.Range(0, (float)dayNightLengthInMinutes * 60);
 			double yearTotalDays = (new DateTime(DateTime.Now.Year, 12, 31) - new DateTime(DateTime.Now.Year, 1, 1)).TotalDays;
-			seasonStart = -(DateTime.Now.DayOfYear / yearTotalDays) * yearLengthInMinutes * 60;
-			RequestSerialization();
-			OnDeserialization();
+			if(pickSeasonAtInit) seasonStart = -(DateTime.Now.DayOfYear / yearTotalDays) * yearLengthInMinutes * 60;
+			if(pickRandomDayNightAtInit || pickSeasonAtInit) {
+				RequestSerialization();
+				OnDeserialization();
+			}
 		}
 		
 		dynamicUpdateLoop();
@@ -304,37 +309,39 @@ public class TimeCore : UdonSharpBehaviour {
 		SnowTrees.SetActive(winter);
 		Trees.SetActive(!winter);
 
-		RainEffect.gameObject.SetActive(localParticleEffects && weather > 0.2 && !winter);
-		SnowEffect.gameObject.SetActive(localParticleEffects && weather > 0.2 && winter);
-		PedalsEffect.gameObject.SetActive(localParticleEffects && sping || summer);
-		FallLeavesEffect.gameObject.SetActive(localParticleEffects && fall);
+		if(RainEffect && SnowEffect && PedalsEffect && FallLeavesEffect && StormCloudsLayer1 && StormCloudsLayer2 && StormCloudsLayer3 && StormCloudsShadow) {
+			RainEffect.gameObject.SetActive(localParticleEffects && weather > 0.2 && !winter);
+			SnowEffect.gameObject.SetActive(localParticleEffects && weather > 0.2 && winter);
+			PedalsEffect.gameObject.SetActive(localParticleEffects && sping || summer);
+			FallLeavesEffect.gameObject.SetActive(localParticleEffects && fall);
 
-		Christmas.SetActive(christmas);
-		Easter.SetActive(easter);
-		Thanksgiving.SetActive(thanksgiving);
-		Halloween.SetActive(halloween);
+			Christmas.SetActive(christmas);
+			Easter.SetActive(easter);
+			Thanksgiving.SetActive(thanksgiving);
+			Halloween.SetActive(halloween);
 
-		StormClouds.SetActive(weather > 0.3);
+			StormClouds.SetActive(weather > 0.3);
 
-		float stormCloudAlpha = (float)Utils.Gradient(weather, new double[] { 0.3, 1 }, new double[] { 0, 1 });
-		StormCloudsLayer1.material.SetColor("_CloudColor", new Color(0.01f, 0.01f, 0.01f, stormCloudAlpha));
-		StormCloudsLayer2.material.SetColor("_CloudColor", new Color(0.1f, 0.1f, 0.1f, stormCloudAlpha));
-		StormCloudsLayer3.material.SetColor("_CloudColor", new Color(0.2f, 0.2f, 0.2f, stormCloudAlpha));
-		StormCloudsShadow.material.color = new Color(0f, 0f, 0f, stormCloudAlpha * 0.995f);
+			float stormCloudAlpha = (float)Utils.Gradient(weather, new double[] { 0.3, 1 }, new double[] { 0, 1 });
+			StormCloudsLayer1.material.SetColor("_CloudColor", new Color(0.01f, 0.01f, 0.01f, stormCloudAlpha));
+			StormCloudsLayer2.material.SetColor("_CloudColor", new Color(0.1f, 0.1f, 0.1f, stormCloudAlpha));
+			StormCloudsLayer3.material.SetColor("_CloudColor", new Color(0.2f, 0.2f, 0.2f, stormCloudAlpha));
+			StormCloudsShadow.material.color = new Color(0f, 0f, 0f, stormCloudAlpha * 0.995f);
 
-		var rainEmission = RainEffect.emission;
-		rainEmission.rateOverTime = Utils.Gradient(weather, new double[] { 0.2, 1 }, new double[] { 0, 900 });
-		var snowEmission = SnowEffect.emission;
-		snowEmission.rateOverTime = Utils.Gradient(weather, new double[] { 0.2, 1 }, new double[] { 0, 900 });
+			var rainEmission = RainEffect.emission;
+			rainEmission.rateOverTime = Utils.Gradient(weather, new double[] { 0.2, 1 }, new double[] { 0, 900 });
+			var snowEmission = SnowEffect.emission;
+			snowEmission.rateOverTime = Utils.Gradient(weather, new double[] { 0.2, 1 }, new double[] { 0, 900 });
 
-		Vector3 windCompensation = -wind * 4;
-		Vector3 playerPos = Networking.LocalPlayer == null ? Vector3.zero : Networking.LocalPlayer.GetPosition();
-		float fallDistance = SnowEffect.transform.position.y - playerPos.y;
-		windCompensation.y = 0;
-		RainEffect.transform.localPosition = windCompensation * Mathf.Sqrt(fallDistance / (9.8f * RainEffect.main.gravityModifier.constant - wind.y));
-		SnowEffect.transform.localPosition = windCompensation * Mathf.Sqrt(fallDistance / (9.8f * SnowEffect.main.gravityModifier.constant - wind.y));
-		PedalsEffect.transform.localPosition = windCompensation * Mathf.Sqrt(fallDistance / (9.8f * PedalsEffect.main.gravityModifier.constant - wind.y));
-		FallLeavesEffect.transform.localPosition = windCompensation * Mathf.Sqrt(fallDistance / (9.8f * FallLeavesEffect.main.gravityModifier.constant - wind.y));
+			Vector3 windCompensation = -wind * 4;
+			Vector3 playerPos = Networking.LocalPlayer == null ? Vector3.zero : Networking.LocalPlayer.GetPosition();
+			float fallDistance = SnowEffect.transform.position.y - playerPos.y;
+			windCompensation.y = 0;
+			RainEffect.transform.localPosition = windCompensation * Mathf.Sqrt(fallDistance / (9.8f * RainEffect.main.gravityModifier.constant - wind.y));
+			SnowEffect.transform.localPosition = windCompensation * Mathf.Sqrt(fallDistance / (9.8f * SnowEffect.main.gravityModifier.constant - wind.y));
+			PedalsEffect.transform.localPosition = windCompensation * Mathf.Sqrt(fallDistance / (9.8f * PedalsEffect.main.gravityModifier.constant - wind.y));
+			FallLeavesEffect.transform.localPosition = windCompensation * Mathf.Sqrt(fallDistance / (9.8f * FallLeavesEffect.main.gravityModifier.constant - wind.y));
+		}
 
 		float scale = wind.magnitude;
 		if(scale < 0.01) scale = 0;
@@ -374,7 +381,7 @@ public class TimeCore : UdonSharpBehaviour {
 	private double dT = 0;
 	public void dynamicUpdateLoop() {
 		dynamicUpdate();
-		dT = 0.5;
+		dT = updateIntervalSeconds;
 		SendCustomEventDelayedSeconds(nameof(dynamicUpdateLoop), (float)dT);
 	}
 
