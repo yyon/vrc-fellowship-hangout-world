@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 1
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 91efbe62b41d97b4db2ba62762dc2ef9, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 7dcf6b31206bb29479ed5146434a0f6c, type: 3}
+  - {fileID: 21300000, guid: 6af561718baeac845a3e7facd64d3f30, type: 3}
+  - {fileID: 21300000, guid: 062d5f62453c32346b404259bdf73072, type: 3}
+  - {fileID: 21300000, guid: 06530ef294adc7345a5e1e08d4ade516, type: 3}
+  - {fileID: 21300000, guid: 29cac79383222694dbfa5d7a828358da, type: 3}
+  - {fileID: 21300000, guid: 67f2e5044153013459a7b248f43298c8, type: 3}
+  - {fileID: 21300000, guid: e91d774423972a440a021b9da43af229, type: 3}
+  - {fileID: 21300000, guid: af2a04b4c010fa04d923a66001d34ff2, type: 3}
+  - {fileID: 21300000, guid: 19c4dd655fc42d54ab602a6b7225cc2f, type: 3}
+  - {fileID: 21300000, guid: 2c5d5e751b115aa468718c25d9a8a326, type: 3}
+  - {fileID: 21300000, guid: 14eea74604e3b1844b492d32237b97d5, type: 3}
+  - {fileID: 21300000, guid: 1c2b93674fdf3f844b57d6316c5fd49c, type: 3}
+  - {fileID: 21300000, guid: 04394b28daf73c84d856b4845ae9617d, type: 3}
+  - {fileID: 21300000, guid: 0fb30d483665128429d87ab84413f27f, type: 3}
+  - {fileID: 21300000, guid: 2cb05668260eb084c843ef950c38c6a7, type: 3}
+  - {fileID: 21300000, guid: 37fb1ff84225eb24a8e1c813cca46f44, type: 3}
+  - {fileID: 21300000, guid: abae5c498fc797841ba636f5687af5d4, type: 3}
+  - {fileID: 21300000, guid: 494c0ea989a89ed459dc02ec1df7cca2, type: 3}
+  - {fileID: 21300000, guid: f8139a2ad82d7fb40b3dd09d09e88e85, type: 3}
+  - {fileID: 21300000, guid: 4b382bba5355d2c4db645251587b22e1, type: 3}
+  - {fileID: 21300000, guid: 2f7fa4ea3dc9a8b4f85d901b20741ace, type: 3}
+  - {fileID: 21300000, guid: f23562eb47c4975498b5cef1249a86f3, type: 3}
+  - {fileID: 21300000, guid: 3233c00df543a7445ae83ec9f09a2f71, type: 3}
+  - {fileID: 21300000, guid: 55ff7a0d326042848ade88514edd4bf8, type: 3}
+  - {fileID: 21300000, guid: 84fefcbdef0daff49a97d71d9021bbb5, type: 3}
+  - {fileID: 21300000, guid: 81aee2cd6c86ea347a673227a271afd7, type: 3}
+  - {fileID: 21300000, guid: 472e271e57484dc4294026e2f902b789, type: 3}
+  - {fileID: 21300000, guid: 6c95a98e918aa1c4eabbb3bc47b1004b, type: 3}
+  - {fileID: 21300000, guid: 87423bded6ba52e479591449cdbb2b03, type: 3}
+  - {fileID: 21300000, guid: 561efeefb15ba834f9afccdc7409ef76, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - video@3x
+  - repeat-no@3x
+  - player-skip-back@3x
+  - player-stop@3x
+  - player-fast-back@3x
+  - hash@3x
+  - contributor-ikuko
+  - live@3x
+  - player-pause@3x
+  - background
+  - version
+  - volume-no@3x
+  - rotate-cw@3x
+  - settings@3x
+  - ui-sprite
+  - repeat@3x
+  - iwaSync3
+  - player-skip-forward@3x
+  - player-fast-forward@3x
+  - twitter@3x
+  - shuffle-no@3x
+  - repeat-once-no@3x
+  - x@3x
+  - lock@3x
+  - unlock@3x
+  - repeat-once@3x
+  - input-field-background
+  - volume-high@3x
+  - player-play@3x
+  - shuffle@3x
+  m_Tag: Sprite Atlas
+  m_IsVariant: 0
